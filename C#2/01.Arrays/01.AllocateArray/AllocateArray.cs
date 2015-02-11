@@ -13,6 +13,18 @@ namespace _01.AllocateArray
     {
         static void Main()
         {
+            var array = new int[20];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = i * 5;
+            }
+
+            PrintArray(array);
+        }
+
+        private static void PrintArray(int[] array)
+        {
+            Console.WriteLine(string.Join(", ",array));
         }
     }
 }

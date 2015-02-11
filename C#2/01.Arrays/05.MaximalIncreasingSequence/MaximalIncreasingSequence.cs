@@ -1,20 +1,19 @@
-﻿//Problem 4. Maximal sequence
+﻿//Problem 5. Maximal increasing sequence
 
-//Write a program that finds the maximal sequence of equal elements in an array.
+//Write a program that finds the maximal increasing sequence in an array.
 //Example:
 
-//input	2, 1, 1, 2, 3, 3, 2, 2, 2, 1	
-//result 2, 2, 2
-namespace _04.MaximalSequence
+//input 3, 2, 3, 4, 2, 2, 4	
+//result 2, 3, 4
+namespace _05.MaximalIncreasingSequence
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    public class MaximalSequence
+    public class MaximalIncreasingSequence
     {
         public static void Main()
         {
@@ -34,7 +33,7 @@ namespace _04.MaximalSequence
                 }
                 else
                 {
-                    if (arr[i] == arr[i - 1])
+                    if (arr[i] == arr[i - 1] + 1)
                     {
                         start[n] = arr[i];
                         startLen++;
@@ -64,7 +63,7 @@ namespace _04.MaximalSequence
         private static int[] ReadArray()
         {
             string arrayAsString = Console.ReadLine();
-            string[] arrayOfStrings = arrayAsString.Split(new char[] {' '},StringSplitOptions.RemoveEmptyEntries);
+            string[] arrayOfStrings = arrayAsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             int[] arrayOfIntegers = new int[arrayOfStrings.Length];
 
             for (int i = 0; i < arrayOfStrings.Length; i++)

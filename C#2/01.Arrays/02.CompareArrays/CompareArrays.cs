@@ -47,7 +47,7 @@ namespace _02.CompareArrays
         private static int[] ReadArray()
         {
             string arrayAsString = Console.ReadLine();
-            string[] arrayOfStrings = arrayAsString.Split(' ');
+            string[] arrayOfStrings = arrayAsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             int[] arrayOfIntegers = new int[arrayOfStrings.Length];
 
             for (int i = 0; i < arrayOfStrings.Length; i++)
@@ -60,7 +60,6 @@ namespace _02.CompareArrays
                 {
                     throw new FormatException("Input string was not in the correct format!");
                 }
-                
             }
 
             return arrayOfIntegers;

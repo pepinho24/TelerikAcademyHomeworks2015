@@ -21,6 +21,11 @@ namespace _02.CompareArrays
             Console.Write("Please enter the elements of the second array separated by space: ");
             int[] secondArray = ReadArray();
 
+            CompareTwoArrays(firstArray, secondArray);
+        }
+
+        private static void CompareTwoArrays(int[] firstArray, int[] secondArray)
+        {
             if (firstArray.Length != secondArray.Length)
             {
                 Console.WriteLine(DIFFERENT_ARRAYS_MESSAGE);
@@ -29,7 +34,7 @@ namespace _02.CompareArrays
             {
                 for (int i = 0; i < firstArray.Length; i++)
                 {
-                    if (firstArray[i]!= secondArray[i])
+                    if (firstArray[i] != secondArray[i])
                     {
                         Console.WriteLine(DIFFERENT_ARRAYS_MESSAGE);
                         return;
@@ -37,13 +42,11 @@ namespace _02.CompareArrays
                 }
                 Console.WriteLine(EQUAL_ARRAYS_MESSAGE);
             }
-
         }
 
         private static int[] ReadArray()
         {
             string arrayAsString = Console.ReadLine();
-            // Using LINQ
             string[] arrayOfStrings = arrayAsString.Split(' ');
             int[] arrayOfIntegers = new int[arrayOfStrings.Length];
 
@@ -62,6 +65,7 @@ namespace _02.CompareArrays
 
             return arrayOfIntegers;
         }
+
         private static void PrintArray(int[] array)
         {
             Console.WriteLine(string.Join(", ", array));

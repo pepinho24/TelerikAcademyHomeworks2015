@@ -4,15 +4,12 @@
 namespace _02.CompareArrays
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class CompareArrays
     {
         private const string DIFFERENT_ARRAYS_MESSAGE = "The arrays are different!";
         private const string EQUAL_ARRAYS_MESSAGE = "The arrays are equal!";
+
         public static void Main()
         {
             Console.Write("Please enter the elements of the first array separated by space: ");
@@ -40,6 +37,7 @@ namespace _02.CompareArrays
                         return;
                     }
                 }
+
                 Console.WriteLine(EQUAL_ARRAYS_MESSAGE);
             }
         }

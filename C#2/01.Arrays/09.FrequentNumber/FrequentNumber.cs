@@ -8,11 +8,6 @@
 namespace _09.FrequentNumber
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
 
     public class FrequentNumber
     {
@@ -20,7 +15,9 @@ namespace _09.FrequentNumber
         {
             int[] array = { 4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3 };
             // int[] array = ReadArray();
+
             Array.Sort(array);
+
             int count = 1;
             int maxCount = 0;
             int num = array[0];
@@ -40,6 +37,7 @@ namespace _09.FrequentNumber
                         maxCount = count;
                         mostFrequent = num;
                     }
+
                     count = 1;
                     num = array[i];
                 }

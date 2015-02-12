@@ -8,10 +8,6 @@
 namespace _07.SelectionSort
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class SelectionSort
     {
@@ -19,6 +15,7 @@ namespace _07.SelectionSort
         {
             Console.Write("Please enter an array of integers separated by space: ");
             int[] array = ReadArray();
+
             SortWithSelectionSort(array);
 
             PrintArray(array);

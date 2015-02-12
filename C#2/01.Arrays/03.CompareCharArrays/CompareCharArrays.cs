@@ -4,10 +4,6 @@
 namespace _03.CompareCharArrays
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class CompareCharArrays
     {
@@ -24,6 +20,7 @@ namespace _03.CompareCharArrays
 
             CompareTwoArrays(firstArray, secondArray);
         }
+
         private static void CompareTwoArrays(char[] firstArray, char[] secondArray) 
         {
             if (firstArray.Length != secondArray.Length)
@@ -40,6 +37,7 @@ namespace _03.CompareCharArrays
                         return;
                     }
                 }
+
                 Console.WriteLine(EQUAL_ARRAYS_MESSAGE);
             }
         }

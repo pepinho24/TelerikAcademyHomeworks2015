@@ -8,41 +8,38 @@
 namespace _04.MaximalSequence
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class MaximalSequence
     {
         public static void Main()
         {
-            //int[] arr = { 3, 2, 2, 2, 1, 3, 3, 3, 3, 3, 3, 3, 1, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7 };
+            //int[] array = { 3, 2, 2, 2, 1, 3, 3, 3, 3, 3, 3, 3, 1, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7 };
             Console.Write("Please enter an array of integers separated by space: ");
-            int[] arr = ReadArray();
-            int[] start = new int[arr.Length];
+            int[] array = ReadArray();
+            int[] start = new int[array.Length];
             List<int> best = new List<int>();
             int bestLen = 1;
             int startLen = 1;
 
-            for (int i = 0, n = 0; i < arr.Length; i++, n++)
+            for (int i = 0, n = 0; i < array.Length; i++, n++)
             {
                 if (i == 0)
                 {
-                    start[n] = arr[i];
+                    start[n] = array[i];
                 }
                 else
                 {
-                    if (arr[i] == arr[i - 1])
+                    if (array[i] == array[i - 1])
                     {
-                        start[n] = arr[i];
+                        start[n] = array[i];
                         startLen++;
                     }
                     else
                     {
                         n = 0;
-                        start[n] = arr[i];
+                        start[n] = array[i];
                         startLen = 1;
                     }
 
@@ -61,6 +58,7 @@ namespace _04.MaximalSequence
 
             PrintArray(best);
         }
+
         private static int[] ReadArray()
         {
             string arrayAsString = Console.ReadLine();

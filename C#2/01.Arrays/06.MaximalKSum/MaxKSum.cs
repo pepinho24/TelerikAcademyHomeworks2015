@@ -5,10 +5,6 @@
 namespace _06.MaximalKSum
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class MaxKSum
     {
@@ -29,8 +25,11 @@ namespace _06.MaximalKSum
         private static void FindMaximumSum(int[] array, int k)
         {
             Array.Sort(array);
+
             int len = array.Length;
+
             Console.Write("The {0} elements with highest sum are: ", k);
+
             for (int i = 0; i < k; i++)
             {
                 if (i != 0)
@@ -40,6 +39,7 @@ namespace _06.MaximalKSum
                 Console.Write(array[len - 1]);
                 len--;
             }
+
             Console.WriteLine("!");
         }
 

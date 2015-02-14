@@ -220,25 +220,5 @@ namespace _01.FillMatrix
 
             return matrix;
         }
-
-        private static void Right()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void Left()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void Down()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static void Up()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

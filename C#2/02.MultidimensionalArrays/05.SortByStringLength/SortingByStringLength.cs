@@ -7,10 +7,7 @@ Write a method that sorts the array by the length of its elements (the number of
 namespace _05.SortByStringLength
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class SortingByStringLength
     {
@@ -28,10 +25,7 @@ namespace _05.SortByStringLength
                 array[i] = Console.ReadLine();
             }
 
-            var sortedWords =
-               from w in array
-               orderby w.Length
-               select w;
+            var sortedWords = array.OrderBy(w=> w.Length);
 
             Console.WriteLine("The sorted array is {0}!", string.Join(", ",sortedWords));
         }

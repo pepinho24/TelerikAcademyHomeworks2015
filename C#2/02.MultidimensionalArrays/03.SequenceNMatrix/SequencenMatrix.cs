@@ -20,10 +20,6 @@ pp	qq	s
 namespace _03.SequenceNMatrix
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class SequenceNMatrix
     {
@@ -69,6 +65,7 @@ namespace _03.SequenceNMatrix
                                 
                            };
 
+            // if you want to fill the matrix from the console input, uncomment the following row
             // matrix = ReadMatrix();
 
             int rowLength = matrix.GetLength(0);

@@ -28,10 +28,6 @@ d)*
 namespace _01.FillMatrix
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class FillMatrix
     {
@@ -42,10 +38,13 @@ namespace _01.FillMatrix
 
             Console.WriteLine("The matrix as A: ");
             PrintMatrix(FillMatrixAsA(n));
+
             Console.WriteLine("The matrix as B: ");
             PrintMatrix(FillMatrixAsB(n));
+
             Console.WriteLine("The matrix as C: ");
             PrintMatrix(FillMatrixAsC(n));
+
             Console.WriteLine("The matrix as D: ");
             PrintMatrix(FillMatrixAsD(n));
         }

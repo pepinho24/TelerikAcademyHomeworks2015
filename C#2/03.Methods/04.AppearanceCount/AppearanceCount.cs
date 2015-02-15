@@ -12,5 +12,25 @@ public class AppearanceCount
 {
     public static void Main()
     {
+        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7 };
+        int number = 4;
+
+        int count = GetAppearanceCount(numbers, number);
+        Console.WriteLine(count);
+    }
+
+    private static int GetAppearanceCount(int[] numbers, int number)
+    {
+        int count = 0;
+
+        foreach (var num in numbers)
+        {
+            if (num == number)
+            {
+                count++;   
+            }
+        }
+
+        return count;
     }
 }

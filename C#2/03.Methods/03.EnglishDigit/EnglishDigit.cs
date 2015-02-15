@@ -8,10 +8,6 @@ input	output
 1024	four
 12309	nine*/
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class EnglishDigit
 {

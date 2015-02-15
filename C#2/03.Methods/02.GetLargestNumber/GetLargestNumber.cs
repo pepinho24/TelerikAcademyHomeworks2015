@@ -12,5 +12,54 @@ public class GetLargestNumber
 {
     public static void Main()
     {
+        int firstNumber = 4;
+        int secondNumber = 3;
+        int thirdNumber = 3;
+
+        int biggestNumber = GetMax(firstNumber, secondNumber, thirdNumber);
+
+        Console.WriteLine(biggestNumber);
+    }
+
+    private static int GetMax(int firstNumber, int secondNumber, int thirdNumber)
+    {
+        if (firstNumber >= secondNumber)
+        {
+            if (firstNumber >= thirdNumber)
+            {
+                return firstNumber;
+            }
+            else
+            {
+                return thirdNumber;
+            }
+        }
+        else if (secondNumber >= firstNumber)
+        {
+            if (secondNumber >= thirdNumber)
+            {
+                return secondNumber;
+            }
+            else
+            {
+                return thirdNumber;
+            }
+        }
+        else
+        {
+            return thirdNumber;
+        }
+    }
+
+    private static int GetMax(int firstNumber, int secondNumber)
+    {
+        if (firstNumber > secondNumber)
+        {
+            return firstNumber;
+        }
+        else
+        {
+            return secondNumber;
+        }
     }
 }

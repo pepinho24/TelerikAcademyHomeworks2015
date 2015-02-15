@@ -12,9 +12,10 @@ public class SayHello
 {
     public static void Main()
     {
-        string name = "Peter";
-        SayHelloMethod(name);
+        Console.Write("Enter a name: ");
+        string name = Console.ReadLine();
 
+        SayHelloMethod(name);
     }
 
     private static void SayHelloMethod(string name)

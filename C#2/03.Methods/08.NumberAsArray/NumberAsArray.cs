@@ -56,6 +56,7 @@ public class NumberAsArray
 
             result[i] = currentResult;
         }
+
         return result;
     }
 

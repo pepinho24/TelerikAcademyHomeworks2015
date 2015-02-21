@@ -3,14 +3,11 @@
 Write a method that return the maximal element in a portion of array of integers starting at given index.
 Using it write another method that sorts an array in ascending / descending order.*/
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class SortingArray
 {
-    static int[] SortArrayAscending(int[] array)
+    private static int[] SortArrayAscending(int[] array)
     {
         int[] sorted = SortArrayDescending(array);
         sorted = sorted.Reverse().ToArray();
@@ -18,7 +15,7 @@ public class SortingArray
         return sorted;
     }
 
-    static int[] SortArrayDescending(int[] array)
+    private static int[] SortArrayDescending(int[] array)
     {
         int maxElementIndex = 0;
         for (int i = 0; i < array.Length; i++)
@@ -32,7 +29,7 @@ public class SortingArray
         return array;
     }
 
-    static int GetMaximalElement(int[] array, int startIndex)
+    private static int GetMaximalElement(int[] array, int startIndex)
     {
         int maxElement = startIndex;
         for (int i = startIndex; i < array.Length; i++)
@@ -46,12 +43,12 @@ public class SortingArray
         return maxElement;
     }
 
-    static void PrintArray(int[] array)
+    private static void PrintArray(int[] array)
     {
         Console.WriteLine("{0} ", string.Join(", ", array));
     }
 
-    static void Main()
+    public static void Main()
     {
         int[] array = { 5, 62, 37, 44, 77, 9, 11, 102, 13, 22, 36, 17 };
         Console.WriteLine("The array: ");

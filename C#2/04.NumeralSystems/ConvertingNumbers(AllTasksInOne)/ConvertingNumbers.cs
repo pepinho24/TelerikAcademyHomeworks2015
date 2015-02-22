@@ -1,15 +1,8 @@
 ﻿namespace ConvertingNumbers_AllTasksInOne_
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
-    /*
-Problem 8. Binary short
-
-Write a program that shows the binary representation of given 16-bit signed integer number (the C# type short).*/
     public class ConvertingNumbers
     {
         /*Problem 1. Decimal to binary
@@ -66,6 +59,24 @@ Write a program that shows the binary representation of given 16-bit signed inte
             return result;
         }
 
+        /*
+        Problem 8. Binary short
+        Write a program that shows the binary representation of given 16-bit signed integer number (the C# type short).*/
+        public static string ConvertShortToBinary(short number)
+        {
+            if (number == 0)
+                return new String('0', 16);
+
+            StringBuilder binary = new StringBuilder();
+
+            for (int bit = 0; bit < 16; bit++)
+            {
+                binary.Insert(0, (number >> bit) & 1);
+            }
+
+            return binary.ToString();
+        }
+
         public static void Main()
         {
             // Here is an online converter: http://number.webmasters.sk/numerical.php
@@ -76,42 +87,55 @@ Write a program that shows the binary representation of given 16-bit signed inte
 
             while (true)
             {
+                /*Problem 1*/
                 //Console.Write("Enter the decimal: ");
                 //decimalValue = Int32.Parse(Console.ReadLine());
                 //binaryValue = ConvertDecimalToBinary(decimalValue);
                 //Console.WriteLine("Binary: {0}!", binaryValue);
 
+                /*Problem 2*/
                 //Console.Write("Enter the binary number: ");
                 //binaryValue = Console.ReadLine();
                 //decimalValue = ConvertBinaryToDecimal(binaryValue);
                 //Console.WriteLine("The number in decimal is: {0}!", decimalValue);
 
+                /*Problem 3*/
                 //Console.Write("Enter the decimal: ");
                 //decimalValue = Int32.Parse(Console.ReadLine());
                 //hexValue = ConvertDecimalToHexadecimal(decimalValue);
                 //Console.WriteLine("The number in hexadecimal is: {0}!", hexValue);
 
+                /*Problem 4*/
                 //Console.Write("Enter the hexadecimal: ");
                 //hexValue = Console.ReadLine();
                 //decimalValue = ConvertHexadecimalToDecimal(hexValue);
                 //Console.WriteLine("The num in decimal is: {0}!", decimalValue);
 
+                /*Problem 5*/
                 //Console.Write("Enter the hexadecimal: ");
                 //hexValue = Console.ReadLine();
                 //binaryValue = ConvertHexadecimalToBinary(hexValue);
                 //Console.WriteLine("The number in binary is: {0}!", binaryValue);
 
+                /*Problem 6*/
                 //Console.Write("Enter the binary: ");
                 //binaryValue = Console.ReadLine();
                 //hexValue = ConvertBinaryToHexadecimal(binaryValue);
                 //Console.WriteLine("The number in hexadecimal is: {0}!", hexValue);
 
-                int baseFrom = GetBase("FROM");
-                int baseTo = GetBase("TO");
-                Console.Write("Enter the number: ");
-                string number = Console.ReadLine();
-                string result = ConvertFromAnyToAnyNumerialSystem(baseFrom, baseTo, number);
-                Console.WriteLine("The converted number is: {0}!", result);
+                /*Problem 7 - One system to any other */
+                //int baseFrom = GetBase("FROM");
+                //int baseTo = GetBase("TO");
+                //Console.Write("Enter the number: ");
+                //string number = Console.ReadLine();
+                //string result = ConvertFromAnyToAnyNumerialSystem(baseFrom, baseTo, number);
+                //Console.WriteLine("The converted number is: {0}!", result);
+
+                /*Problem 8*/
+                Console.Write("Enter the short number: ");
+                short shortValue = short.Parse(Console.ReadLine());
+                binaryValue = ConvertShortToBinary(shortValue);
+                Console.WriteLine("The number in binary is: {0}!", binaryValue);
             }
         }
 

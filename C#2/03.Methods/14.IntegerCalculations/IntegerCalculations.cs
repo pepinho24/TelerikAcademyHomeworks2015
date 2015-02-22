@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 public class IntegerCalculations
 {
-    static T MinOfSet<T>(params T[] numArray)
+    private static T MinOfSet<T>(params T[] numArray)
     {
         dynamic min = numArray[0];
         for (int i = 0; i < numArray.Length; i++)
@@ -24,11 +24,11 @@ public class IntegerCalculations
                 min = numArray[i];
             }
         }
-        
+
         return min;
     }
 
-    static T MaxOfSet<T>(params T[] numArray)
+    private static T MaxOfSet<T>(params T[] numArray)
     {
         dynamic max = numArray[0];
         for (int i = 0; i < numArray.Length; i++)
@@ -42,7 +42,7 @@ public class IntegerCalculations
         return max;
     }
 
-    static decimal AverageOfSet<T>(params T[] numArray)
+    private static decimal AverageOfSet<T>(params T[] numArray)
     {
         dynamic sum = 0;
         for (int i = 0; i < numArray.Length; i++)
@@ -53,7 +53,7 @@ public class IntegerCalculations
         return (sum / (decimal)numArray.Length);
     }
 
-    static T SumOfSet<T>(params T[] numArray)
+    private static T SumOfSet<T>(params T[] numArray)
     {
         dynamic sum = 0;
         for (int i = 0; i < numArray.Length; i++)
@@ -64,7 +64,7 @@ public class IntegerCalculations
         return sum;
     }
 
-    static T ProductOfSet<T>(params T[] numArray)
+    private static T ProductOfSet<T>(params T[] numArray)
     {
         dynamic product = 1;
         for (int i = 0; i < numArray.Length; i++)
@@ -75,7 +75,7 @@ public class IntegerCalculations
         return product;
     }
 
-    static void Main()
+    public static void Main()
     {
         Console.WriteLine("The minimum of set is: {0}", MinOfSet(1, 2, 3, 4, -5, 6, 7));
         Console.WriteLine("The maximum of set is: {0}", MaxOfSet(1, 2, 3, 4, -5, 6, 7));

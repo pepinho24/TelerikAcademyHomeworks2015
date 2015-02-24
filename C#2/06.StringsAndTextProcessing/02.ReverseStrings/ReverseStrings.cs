@@ -17,6 +17,10 @@ namespace _02.ReverseStrings
     {
         public static void Main()
         {
+            Console.Write("Enter a string to be reversed: ");
+            var originalString = Console.ReadLine();
+            string reversedString = string.Join("", originalString.Reverse().ToArray());
+            Console.WriteLine("Reversed string is : " + reversedString);
         }
     }
 }

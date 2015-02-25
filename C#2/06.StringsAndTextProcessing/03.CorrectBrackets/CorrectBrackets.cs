@@ -12,8 +12,38 @@ namespace _03.CorrectBrackets
 
     public class CorrectBrackets
     {
+        static bool CheckBrackets(string str)
+        {
+            int stack = 0;
+
+            for (int i = 0; i < str.Length && stack >= 0; i++)
+            {
+                if (str[i] == '(')
+                {
+                    stack++;
+                }
+
+                if (str[i] == ')')
+                {
+                    stack--;
+                }
+
+                if (stack < 0)
+                {
+                    return false;
+                }
+            }
+
+            return stack == 0;
+        }
+
         public static void Main()
         {
+            Console.Write("Please enter an expression to check the brackets of: ");
+            var expression = Console.ReadLine();
+            var areBracketsCorrect = CheckBrackets(expression);
+
+            Console.WriteLine("The brackets of {0} are {1}!", expression, areBracketsCorrect? "correct" :"incorrect");
         }
     }
 }

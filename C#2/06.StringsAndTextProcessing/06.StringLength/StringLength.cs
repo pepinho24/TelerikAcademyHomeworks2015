@@ -5,15 +5,33 @@ Print the result string into the console.*/
 namespace _06.StringLength
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class StringLength
     {
         public static void Main()
         {
+            string str;
+            do
+            {
+                Console.Write("Please enter a string of maximum 20 characters: ");
+                 str = Console.ReadLine();
+
+            } while (str.Length>20);
+            
+            string newStr = FillString(str);
+
+            Console.WriteLine("The new string is: " + newStr);
+        }
+
+        private static string FillString(string str)
+        {
+            string newStr = str;
+            if (str.Length < 20)
+            {
+                newStr = str + new String('*', 20 - str.Length);
+            }
+
+            return newStr;
         }
     }
 }

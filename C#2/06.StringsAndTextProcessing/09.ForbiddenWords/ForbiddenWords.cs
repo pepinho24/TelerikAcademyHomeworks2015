@@ -10,15 +10,26 @@ The expected result: ********* announced its next generation *** compiler today.
 namespace _09.ForbiddenWords
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Text.RegularExpressions;
 
     public class ForbiddenWords
     {
         public static void Main()
         {
+            //Console.WriteLine("Please enter the text: ");
+            //string text = Console.ReadLine();
+            string text = "Microsoft announced its next generation PHP compiler today. It is based on .NET Framework 4.0 and is implemented as a dynamic language in CLR.";
+
+            //Console.WriteLine("Please enter the words separating them by \", \" or \"|\"");
+            //string words = Console.ReadLine();
+            string words = "PHP, CLR, Microsoft";
+
+            PrintCensuredText(text, words);
+        }
+
+        private static void PrintCensuredText(string text, string forbiddenWords)
+        {
+            Console.WriteLine(Regex.Replace(text, forbiddenWords.Replace(", ", "|"), w => new String('*', w.Length)));
         }
     }
 }

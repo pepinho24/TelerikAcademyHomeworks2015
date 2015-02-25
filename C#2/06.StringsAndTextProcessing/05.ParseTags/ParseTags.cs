@@ -8,15 +8,22 @@ The expected result: We are living in a YELLOW SUBMARINE. We don't have ANYTHING
 namespace _05.ParseTags
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Text.RegularExpressions;
 
     public class ParseTags
     {
         public static void Main()
         {
+            Console.WriteLine("Please enter the text: ");
+            string text = Console.ReadLine();
+
+            string parsedText = ParseUpcaseTag(text);
+            Console.WriteLine(parsedText);
+        }
+
+        private static string ParseUpcaseTag(string text)
+        {
+            return Regex.Replace(text, "<upcase>(.*?)</upcase>", m => m.Groups[1].Value.ToUpper());
         }
     }
 }

@@ -11,15 +11,21 @@ output
 namespace _15.ReplaceTags
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class ReplaceTags
     {
         public static void Main()
         {
+            string text = @"<p>Please visit <a href=""http://academy.telerik.com"">our site</a> to choose a training course. Also visit <a href=""www.devbg.org"">our forum</a> to discuss the courses.</p>";
+            //Console.WriteLine("Please enter text: ");
+            //text = Console.ReadLine();
+
+            string replaced = text.Replace(@"<a href=""", "[URL=");
+            replaced = replaced.Replace(@"</a>", "[/URL]");
+            replaced = replaced.Replace(@""">", "]");
+
+            Console.WriteLine("The parsed text is: ");
+            Console.WriteLine(replaced);
         }
     }
 }

@@ -13,6 +13,27 @@ namespace _22.WordsCount
     {
         public static void Main()
         {
+            string text = Console.ReadLine();
+            string[] allWordsArr = text.Split(new char[] { ' ', '.', ',', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+
+            foreach (var word in allWordsArr)
+            {
+                if (dict.ContainsKey(word))
+                {
+                    dict[word] = dict[word] + 1;
+                }
+                else
+                {
+                    dict.Add(word, 1);
+                }
+            }
+
+            foreach (var word in dict)
+            {
+                Console.WriteLine("{0,-15} - {1} {2}", word.Key, word.Value, word.Value > 1 ? "times" : "time");
+            }
         }
     }
 }

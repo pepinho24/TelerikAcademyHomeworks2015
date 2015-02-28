@@ -4,15 +4,14 @@ Write a program that reads a list of words, separated by spaces and prints the l
 namespace _24.OrderWords
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class OrderWords
     {
         public static void Main()
         {
+            // that is the shortest solution I came up with :D
+            foreach (var w in Console.ReadLine().Split(' ').OrderBy(x=>x)) Console.WriteLine(w);
         }
     }
 }

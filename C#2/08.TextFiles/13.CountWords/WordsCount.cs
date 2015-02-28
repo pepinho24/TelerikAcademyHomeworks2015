@@ -6,15 +6,68 @@ Handle all possible exceptions in your methods.*/
 namespace _13.CountWords
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.IO;
+    using System.Security;
+    using System.Text.RegularExpressions;
 
     class WordsCount
     {
         static void Main()
         {
+            try
+            {
+                string[] words = File.ReadAllLines("../../words.txt");
+                int[] values = new int[words.Length];
+
+                // Count words
+                using (StreamReader input = new StreamReader("../../test.txt"))
+                {
+                    for (string line; (line = input.ReadLine()) != null; )
+                    {
+                        for (int i = 0; i < words.Length; i++)
+                        {
+                            values[i] += Regex.Matches(line, @"\b" + words[i] + @"\b").Count;
+                        }
+                    }
+                }
+
+                // Sort
+                Array.Sort(values, words);
+
+                // Write output
+                using (StreamWriter output = new StreamWriter("../../result.txt"))
+                {
+                    for (int i = words.Length - 1; i >= 0; i--) // Descending order
+                    {
+                        output.WriteLine("{0}: {1}", words[i], values[i]);
+                    }
+                }
+            }
+
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            catch (DirectoryNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            catch (SecurityException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            catch (UnauthorizedAccessException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

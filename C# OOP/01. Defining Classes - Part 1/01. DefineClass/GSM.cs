@@ -34,19 +34,49 @@ namespace _01.DefineClass
         public string Model
         {
             get { return this.model; }
-            set { this.model = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Model cannot be null or empty!");
+                }
+                else
+                {
+                    this.model = value;
+                }
+            }
         }
 
         public string Manufacturer
         {
             get { return this.manufacturer; }
-            set { this.manufacturer = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Manufacturer cannot be null or empty!");
+                }
+                else
+                {
+                    this.manufacturer = value;
+                }
+            }
         }
 
         public double? Price
         {
             get { return this.price; }
-            set { this.price = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Price cannot be less than 0!");
+                }
+                else
+                {
+                    this.price = value;
+                }
+            }
         }
 
         public Human Owner

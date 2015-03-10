@@ -6,6 +6,8 @@
 */
 namespace _01.DefineClass
 {
+    using System;
+
     public class Display
     {
         private const int DefaultNumberOfColors = 2;
@@ -20,15 +22,26 @@ namespace _01.DefineClass
 
         public int NumberOfColors
         {
-            get { return numberOfColors; }
-            set { numberOfColors = value; }
+            get { return this.numberOfColors; }
+            set
+            {
+                if (numberOfColors > 0)
+                {
+                    this.numberOfColors = value;
+                }
+                else
+                {
+                    throw new ArgumentException("The number of colors must be more than 0!");
+                }
+            }
         }
-        
+
         public Size Size
         {
-            get { return size; }
-            set { size = value; }
+            get { return this.size; }
+            set { this.size = value; }
         }
+
         public override string ToString()
         {
             return string.Format("Diagonal Length: {0}, Number of Colors: {1}", this.Size.DiagonalLength, this.NumberOfColors);

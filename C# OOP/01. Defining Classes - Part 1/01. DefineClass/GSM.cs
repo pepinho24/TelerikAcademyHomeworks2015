@@ -7,12 +7,18 @@
    Define several constructors for the defined classes that take different sets of arguments (the full information for the class or part of it).
    Assume that model and manufacturer are mandatory (the others are optional). All unknown data fill with null.
 */
+/* Problem 6. Static field
+
+   Add a static field and a property IPhone4S in the GSM class to hold the information about iPhone 4S.
+*/
 
 using System;
 namespace _01.DefineClass
 {
     public class GSM
     {
+        private static readonly GSM iPhone4S = new GSM("IPhone 4S", "Apple Inc.");
+
         private const string NotAvailable = "N/A";
         private string model;
         private string manufacturer;
@@ -29,6 +35,14 @@ namespace _01.DefineClass
             this.Owner = owner;
             this.Battery = battery;
             this.Display = display;
+        }
+
+        public static GSM IPhone4S
+        {
+            get
+            {
+                return iPhone4S;
+            }
         }
 
         public string Model
@@ -99,9 +113,20 @@ namespace _01.DefineClass
 
         public override string ToString()
         {
-            string gsmInfo = string.Format("GSM Manufacturer: {0}, Model: {1}, Price: {2}, Owner: {3}, Battery: {4}, Display: {5}",
-                this.Manufacturer, this.Model, this.Price == null ? NotAvailable : this.Price.ToString(), this.Owner.FullName == null ? NotAvailable : this.Owner.FullName,
-                this.Battery == null ? NotAvailable : this.Battery.ToString(), this.Display == null ? NotAvailable : this.Display.ToString());
+            string manufact = this.Manufacturer;
+            string model = this.Model;
+            string price = this.Price == null ? NotAvailable : this.Price.ToString();
+            string owner = this.Owner == null ? NotAvailable : this.Owner.FullName;
+            string battery = this.Battery == null ? NotAvailable : this.Battery.ToString();
+            string display = this.Display == null ? NotAvailable : this.Display.ToString();
+
+            string gsmInfo = string.Format(@"Model: {1},
+    GSM Manufacturer: {0},
+    Price: {2}, 
+    Owner: {3}, 
+    Battery: {4}, 
+    Display: {5}",
+              manufact, model, price, owner, battery, display);
 
             return gsmInfo;
         }

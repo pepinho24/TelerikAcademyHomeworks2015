@@ -10,6 +10,7 @@
     {
         public static void Main()
         {
+            Console.WriteLine(GSM.IPhone4S);
         }
     }
 }

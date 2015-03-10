@@ -1,4 +1,5 @@
-﻿namespace _01.DefineClass
+﻿using System;
+namespace _01.DefineClass
 {
     public class Size
     {
@@ -6,7 +7,7 @@
         public double Height { get; set; }
 
         public Size(double width)
-            :this(width,width)
+            : this(width, width)
         {
 
         }
@@ -15,6 +16,14 @@
         {
             this.Width = width;
             this.Height = height;
+        }
+
+        public double DiagonalLength
+        {
+            get
+            {
+                return Math.Sqrt(this.Height * this.Height + this.Width * this.Width);
+            }
         }
     }
 }

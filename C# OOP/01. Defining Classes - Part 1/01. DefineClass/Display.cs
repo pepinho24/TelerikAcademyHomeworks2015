@@ -29,5 +29,9 @@ namespace _01.DefineClass
             get { return size; }
             set { size = value; }
         }
+        public override string ToString()
+        {
+            return string.Format("Diagonal Length: {0}, Number of Colors: {1}", this.Size.DiagonalLength, this.NumberOfColors);
+        }
     }
 }

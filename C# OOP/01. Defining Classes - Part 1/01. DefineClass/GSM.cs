@@ -1,6 +1,6 @@
 ﻿//Problem 1. Define class
-    //Define a class that holds information about a mobile phone device: model, manufacturer, price, owner, battery characteristics (model, hours idle and hours talk) and display characteristics (size and number of colors).
-   // Define 3 separate classes (class GSM holding instances of the classes Battery and Display).
+//Define a class that holds information about a mobile phone device: model, manufacturer, price, owner, battery characteristics (model, hours idle and hours talk) and display characteristics (size and number of colors).
+// Define 3 separate classes (class GSM holding instances of the classes Battery and Display).
 
 /* Problem 2. Constructors
 
@@ -8,10 +8,12 @@
    Assume that model and manufacturer are mandatory (the others are optional). All unknown data fill with null.
 */
 
+using System;
 namespace _01.DefineClass
 {
     public class GSM
     {
+        private const string NotAvailable = "N/A";
         private string model;
         private string manufacturer;
         private double? price;
@@ -28,41 +30,50 @@ namespace _01.DefineClass
             this.Battery = battery;
             this.Display = display;
         }
-      
+
         public string Model
         {
-            get { return model; }
-            set { model = value; }
-        } 
-        
+            get { return this.model; }
+            set { this.model = value; }
+        }
+
         public string Manufacturer
         {
-            get { return manufacturer; }
-            set { manufacturer = value; }
+            get { return this.manufacturer; }
+            set { this.manufacturer = value; }
         }
 
         public double? Price
         {
-            get { return price; }
-            set { price = value; }
+            get { return this.price; }
+            set { this.price = value; }
         }
 
         public Human Owner
         {
-            get { return owner; }
-            set { owner = value; }
+            get { return this.owner; }
+            set { this.owner = value; }
         }
 
         public Battery Battery
         {
-            get { return battery; }
-            set { battery = value; }
+            get { return this.battery; }
+            set { this.battery = value; }
         }
-        
+
         public Display Display
         {
-            get { return display; }
-            set { display = value; }
+            get { return this.display; }
+            set { this.display = value; }
+        }
+
+        public override string ToString()
+        {
+            string gsmInfo = string.Format("GSM Manufacturer: {0}, Model: {1}, Price: {2}, Owner: {3}, Battery: {4}, Display: {5}",
+                this.Manufacturer, this.Model, this.Price == null ? NotAvailable : this.Price.ToString(), this.Owner.FullName == null ? NotAvailable : this.Owner.FullName,
+                this.Battery == null ? NotAvailable : this.Battery.ToString(), this.Display == null ? NotAvailable : this.Display.ToString());
+
+            return gsmInfo;
         }
     }
 }

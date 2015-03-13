@@ -45,9 +45,9 @@
             }
         }
 
-        public string FullName
+        public override string ToString()
         {
-            get { return this.FirstName + " " + this.LastName; }
+            return this.FirstName + " " + this.LastName; 
         }
     }
 }

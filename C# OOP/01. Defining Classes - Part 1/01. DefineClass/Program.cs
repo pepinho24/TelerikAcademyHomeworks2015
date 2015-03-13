@@ -1,18 +1,14 @@
 ﻿namespace _01.DefineClass
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Program
     {
         public static void Main()
         {
-            GSMCallHistoryTest.TestCallHistory();
-            Console.WriteLine(new string('=', Console.BufferWidth));
             GSMTest.TestGSMCreation();
+            Console.WriteLine(new string('=', Console.BufferWidth));
+            GSMCallHistoryTest.TestCallHistory();
         }
     }
 }

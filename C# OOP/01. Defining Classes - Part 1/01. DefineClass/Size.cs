@@ -1,6 +1,7 @@
-﻿using System;
-namespace _01.DefineClass
+﻿namespace _01.DefineClass
 {
+    using System;
+
     public class Size
     {
         private double width;
@@ -39,13 +40,13 @@ namespace _01.DefineClass
             get { return this.height; }
             set
             {
-                if (value <= 0)
+                if (value > 0)
                 {
-                    throw new ArgumentOutOfRangeException("Height should be greater than 0!");
+                    this.height = value;
                 }
                 else
                 {
-                    this.height = value;
+                    throw new ArgumentOutOfRangeException("Height should be greater than 0!");
                 }
             }
         }

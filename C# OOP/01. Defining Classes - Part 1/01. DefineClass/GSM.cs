@@ -186,7 +186,7 @@ namespace _01.DefineClass
             string manufact = this.Manufacturer;
             string model = this.Model;
             string price = this.Price == null ? NotAvailable : this.Price.ToString();
-            string owner = this.Owner == null ? NotAvailable : this.Owner.FullName;
+            string owner = this.Owner == null ? NotAvailable : this.Owner.ToString();
             string battery = this.Battery == null ? NotAvailable : this.Battery.ToString();
             string display = this.Display == null ? NotAvailable : this.Display.ToString();
 

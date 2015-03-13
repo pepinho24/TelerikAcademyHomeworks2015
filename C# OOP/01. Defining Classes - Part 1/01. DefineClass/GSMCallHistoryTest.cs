@@ -47,11 +47,16 @@ namespace _01.DefineClass
             Console.WriteLine(GSM.GetCallHistoryAsString(phone.CallHistory));
         }
 
-        private static Call GetLongestCall(List<Call> list)
+        private static Call GetLongestCall(List<Call> listOfCalls)
         {
-            Call longestCall = list[0];
+            if (listOfCalls.Count == 0)
+            {
+                throw new ArgumentException("The list of calls cannot be empty");
+            }
 
-            foreach (var call in list)
+            Call longestCall = listOfCalls[0];
+
+            foreach (var call in listOfCalls)
             {
                 if (call.CallDuration > longestCall.CallDuration)
                 {

@@ -30,6 +30,7 @@ namespace _01.DefineClass
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
 
     public class GSM
     {
@@ -43,7 +44,6 @@ namespace _01.DefineClass
         private Battery battery;
         private Display display;
         private List<Call> callHistory;
-
 
         public GSM(string model, string manufacturer, double? price = null, Human owner = null, Battery battery = null, Display display = null)
         {
@@ -145,7 +145,7 @@ namespace _01.DefineClass
             this.callHistory.Remove(call);
         }
 
-        public void ClearCallHistory(Call call)
+        public void ClearCallHistory()
         {
             this.callHistory = new List<Call>();
         }
@@ -162,6 +162,23 @@ namespace _01.DefineClass
             double totalPrice = (callsDuration / 60) * pricePerMinute;
 
             return totalPrice;
+        }
+
+        public static string GetCallHistoryAsString(IList<Call> callHistory)
+        {
+            if (callHistory.Count == 0)
+            {
+                return "No calls in history!";
+            }
+
+            StringBuilder result = new StringBuilder();
+
+            foreach (var call in callHistory)
+            {
+                result.AppendLine(call.ToString());
+            }
+
+            return result.ToString();
         }
 
         public override string ToString()

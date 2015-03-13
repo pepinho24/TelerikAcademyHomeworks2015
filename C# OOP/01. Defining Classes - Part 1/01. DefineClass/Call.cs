@@ -10,10 +10,16 @@ namespace _01.DefineClass
     public class Call
     {
         private DateTime date;
-       
         private int callDuration;
         private string dialledPhoneNumber;
-        
+
+        public Call(DateTime date, int callDurationInSeconds, string dialledPhoneNumber)
+        {
+            this.Date = date;
+            this.CallDuration = callDurationInSeconds;
+            this.DialledPhoneNumber = dialledPhoneNumber;
+        }
+
         public DateTime Date
         {
             get { return this.date; }
@@ -33,13 +39,33 @@ namespace _01.DefineClass
         public int CallDuration
         {
             get { return this.callDuration; }
-            set { this.callDuration = value; }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Incorrect call duration!");
+                }
+                else
+                {
+                    this.callDuration = value;
+                }
+            }
         }
-        
+
         public string DialledPhoneNumber
         {
             get { return this.dialledPhoneNumber; }
-            set { this.dialledPhoneNumber = value; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Dialled number cannot be null or empty!");
+                }
+                else
+                {
+                    this.dialledPhoneNumber = value;
+                }
+            }
         }
 
         public override string ToString()

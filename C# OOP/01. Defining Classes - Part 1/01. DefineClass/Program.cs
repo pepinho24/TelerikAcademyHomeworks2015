@@ -10,9 +10,9 @@
     {
         public static void Main()
         {
-            Console.WriteLine(GSM.IPhone4S);
-
             GSMCallHistoryTest.TestCallHistory();
+            Console.WriteLine(new string('=', Console.BufferWidth));
+            GSMTest.TestGSMCreation();
         }
     }
 }

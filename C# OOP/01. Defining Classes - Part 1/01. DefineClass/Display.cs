@@ -25,7 +25,7 @@ namespace _01.DefineClass
             get { return this.numberOfColors; }
             set
             {
-                if (numberOfColors > 0)
+                if (value > 0)
                 {
                     this.numberOfColors = value;
                 }

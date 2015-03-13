@@ -27,6 +27,7 @@ namespace _01.DefineClass
             {
                 phone.AddCall(new Call(DateTime.Now.AddDays(-rnd.Next(1, 50)).AddMinutes(-rnd.Next(1, 50)), rnd.Next(15, 7180), rnd.Next(99999999).ToString()));
             }
+
             Console.WriteLine("Phone call History: ");
             Console.WriteLine(GSM.GetCallHistoryAsString(phone.CallHistory));
             Console.WriteLine();

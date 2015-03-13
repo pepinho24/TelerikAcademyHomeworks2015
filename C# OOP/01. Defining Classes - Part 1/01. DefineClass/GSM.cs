@@ -11,10 +11,26 @@
 
    Add a static field and a property IPhone4S in the GSM class to hold the information about iPhone 4S.
 */
+/* Problem 9. Call history
 
-using System;
+   Add a property CallHistory in the GSM class to hold a list of the performed calls.
+   Try to use the system class List<Call>.
+*/
+/* Problem 10. Add/Delete calls
+
+   Add methods in the GSM class for adding and deleting calls from the calls history.
+   Add a method to clear the call history.
+*/
+/* Problem 11. Call price
+
+   Add a method that calculates the total price of the calls in the call history.
+   Assume the price per minute is fixed and is provided as a parameter.
+*/
 namespace _01.DefineClass
 {
+    using System;
+    using System.Collections.Generic;
+
     public class GSM
     {
         private static readonly GSM iPhone4S = new GSM("IPhone 4S", "Apple Inc.");
@@ -26,6 +42,8 @@ namespace _01.DefineClass
         private Human owner;
         private Battery battery;
         private Display display;
+        private List<Call> callHistory;
+
 
         public GSM(string model, string manufacturer, double? price = null, Human owner = null, Battery battery = null, Display display = null)
         {
@@ -35,6 +53,7 @@ namespace _01.DefineClass
             this.Owner = owner;
             this.Battery = battery;
             this.Display = display;
+            this.callHistory = new List<Call>();
         }
 
         public static GSM IPhone4S
@@ -109,6 +128,40 @@ namespace _01.DefineClass
         {
             get { return this.display; }
             set { this.display = value; }
+        }
+
+        public List<Call> CallHistory
+        {
+            get { return callHistory; }
+        }
+
+        public void AddCall(Call call)
+        {
+            this.callHistory.Add(call);
+        }
+
+        public void DeleteCall(Call call)
+        {
+            this.callHistory.Remove(call);
+        }
+
+        public void ClearCallHistory(Call call)
+        {
+            this.callHistory = new List<Call>();
+        }
+
+        public double CalculatePriceOfCallsInCallHistory(double pricePerMinute)
+        {
+            double callsDuration = 0;
+
+            foreach (var call in this.callHistory)
+            {
+                callsDuration += call.CallDuration;
+            }
+
+            double totalPrice = (callsDuration / 60) * pricePerMinute;
+
+            return totalPrice;
         }
 
         public override string ToString()

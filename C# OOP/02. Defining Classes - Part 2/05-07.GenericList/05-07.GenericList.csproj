@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyGenericList.cs" />
-    <Compile Include="StartingPoint.cs" />
+    <Compile Include="StartingPointGenericList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

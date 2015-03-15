@@ -45,7 +45,7 @@
     <Compile Include="Path.cs" />
     <Compile Include="PathStorage.cs" />
     <Compile Include="Point3D.cs" />
-    <Compile Include="StartingPoint.cs" />
+    <Compile Include="StartingPointPoint3D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

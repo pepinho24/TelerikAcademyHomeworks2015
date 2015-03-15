@@ -19,7 +19,7 @@ namespace _05_07.GenericList
 {
     using System;
 
-    public class StartingPoint
+    public class StartingPointGenericList
     {
         public static void Main()
         {

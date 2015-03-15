@@ -24,7 +24,7 @@ namespace _01_04.Point
     using System.Text;
     using System.Threading.Tasks;
 
-    public class StartingPoint
+    public class StartingPointPoint3D
     {
         public static void Main()
         {

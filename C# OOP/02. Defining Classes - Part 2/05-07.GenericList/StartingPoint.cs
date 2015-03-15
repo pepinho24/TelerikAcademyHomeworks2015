@@ -24,17 +24,25 @@ namespace _05_07.GenericList
         public static void Main()
         {
             var list = new MyGenericList<int>(1);
-            for (int i = 0; i < 17; i++)
+            for (int i = 0; i < 16; i++)
             {
                 list.Add(i);
             }
 
-            Console.WriteLine("Original Array:");
+            Console.WriteLine("Original Array (capacity {0}):", list.Elements.Length);
             Console.WriteLine(list);
             Console.WriteLine(new string('-', Console.BufferWidth));
 
-            Console.WriteLine("Changing an element:");
-            list[0] = 984357;
+            int element = 555;
+            list.Add(element);
+            Console.WriteLine("Array after adding {0} (capacity {1}):", element, list.Elements.Length);
+            Console.WriteLine(list);
+            Console.WriteLine(new string('-', Console.BufferWidth));
+
+            int index = 0;
+            int changedElement = 13254687;
+            list[index] = changedElement;
+            Console.WriteLine("Changing the element at index {0} to {1}:", index, changedElement);
             Console.WriteLine(list);
             Console.WriteLine(new string('-', Console.BufferWidth));
 

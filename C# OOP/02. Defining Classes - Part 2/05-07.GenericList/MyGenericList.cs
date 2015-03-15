@@ -10,7 +10,7 @@ Keep the elements of the list in an array with fixed capacity which is given as 
  * removing element by index, 
  * inserting element at given position, 
  * clearing the list, 
- * finding element by its value and 
+ * fiing element by its value and 
  * ToString().
 
  * Check all input parameters to avoid accessing elements at invalid positions.
@@ -18,16 +18,18 @@ Keep the elements of the list in an array with fixed capacity which is given as 
  
 Implement auto-grow functionality: when the internal array is full, create a new array of double size and move all elements to it.
  
+* Problem 7. Min and Max
+
+Create generic methods Min<T>() and Max<T>() for fiing the minimal and maximal element in the GenericList<T>.
+You may need to add a generic constraints for the type T.
  */
 namespace _05_07.GenericList
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
 
     public class MyGenericList<T>
+        where T : IComparable
     {
         private T[] elements;
         private int NextFree = 0;
@@ -49,12 +51,12 @@ namespace _05_07.GenericList
         {
             get
             {
-                CheckIndex(index);
+                Checkindex(index);
                 return this.Elements[index];
             }
             set
             {
-                CheckIndex(index);
+                Checkindex(index);
                 this.Elements[index] = value;
             }
         }
@@ -72,24 +74,25 @@ namespace _05_07.GenericList
 
         public T RemoveAt(int index)
         {
-            CheckIndex(index);
+            Checkindex(index);
 
             var removedElement = this.Elements[index];
 
-            for (int i = index+1; i < this.Elements.Length; i++)
+            for (int i = index + 1; i < this.Elements.Length; i++)
             {
                 this.Elements[i - 1] = this.Elements[i];
             }
 
             this.Elements[this.Elements.Length - 1] = default(T);
+            this.NextFree--;
 
             return removedElement;
         }
 
         public void InsertAt(int index, T item)
         {
-            CheckIndex(index);
-            
+            Checkindex(index);
+
             for (int i = this.Elements.Length; i > index; i--)
             {
                 if (i == this.Elements.Length)
@@ -111,34 +114,81 @@ namespace _05_07.GenericList
             this.NextFree = 0;
         }
 
-        public int IndexOf(T element)
+        public int indexOf(T element)
         {
             int index = -1;
 
-            for (int ind = 0; ind < this.NextFree; ind++)
+            for (int i = 0; i < this.NextFree; i++)
             {
-                if (this.Elements[ind].Equals(element))
+                if (this.Elements[i].Equals(element))
                 {
-                    return ind;
+                    return i;
                 }
             }
 
             return index;
         }
 
-        private void CheckIndex(int index)
+        public T Min()
+        {
+            if (NextFree > 0)
+            {
+                T min = default(T);
+
+                min = this.Elements[0];
+
+                for (int i = 1; i < this.NextFree; i++)
+                {
+                    if (min.CompareTo(this.Elements[i]) > 0)
+                    {
+                        min = this.Elements[i];
+                    }
+                }
+
+                return min;
+            }
+            else
+            {
+                throw new NullReferenceException("There are no elements int the list!");
+            }
+        }
+
+        public T Max()
+        {
+            if (NextFree > 0)
+            {
+                T max = default(T);
+
+                max = this.Elements[0];
+
+                for (int i = 1; i < this.NextFree; i++)
+                {
+                    if (max.CompareTo(this.Elements[i]) < 0)
+                    {
+                        max = this.Elements[i];
+                    }
+                }
+
+                return max;
+            }
+            else
+            {
+                throw new NullReferenceException("There are no elements int the list!");
+            }
+        }
+
+
+        private void Checkindex(int index)
         {
             if (index < 0 || index >= NextFree)
             {
-                throw new IndexOutOfRangeException(
-                 String.Format("Index {0} is invalid!", index));
+                throw new IndexOutOfRangeException(String.Format("index {0} is invalid!", index));
             }
         }
 
         private void DoubleCapacity()
         {
-            var newCapacity = this.Elements.Length == 0 ? 2 : this.Elements.Length * 2;
-
+            var newCapacity = this.Elements.Length == 0 ? 1 : this.Elements.Length * 2;
             var newElements = new T[newCapacity];
 
             for (int i = 0; i < this.Elements.Length; i++)
@@ -147,6 +197,19 @@ namespace _05_07.GenericList
             }
 
             this.Elements = newElements;
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(this.Elements[0]);
+
+            for (int i = 1; i < this.NextFree; i++)
+            {
+                sb.AppendFormat(", {0}", this.Elements[i]);
+            }
+
+            return sb.ToString();
         }
     }
 }

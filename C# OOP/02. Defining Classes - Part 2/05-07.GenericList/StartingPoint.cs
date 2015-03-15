@@ -3,7 +3,7 @@
 
 Write a generic class GenericList<T> that keeps a list of elements of some parametric type T.
 Keep the elements of the list in an array with fixed capacity which is given as parameter in the class constructor.
-Implement methods for adding element, accessing element by index, removing element by index, inserting element at given position, clearing the list, finding element by its value and ToString().
+Implement methods for adding element, accessing element by index, removing element by index, inserting element at given position, clearing the list, fiing element by its value and ToString().
 Check all input parameters to avoid accessing elements at invalid positions.
  
  * Problem 6. Auto-grow
@@ -12,16 +12,12 @@ Implement auto-grow functionality: when the internal array is full, create a new
 
  * Problem 7. Min and Max
 
-Create generic methods Min<T>() and Max<T>() for finding the minimal and maximal element in the GenericList<T>.
+Create generic methods Min<T>() and Max<T>() for fiing the minimal and maximal element in the GenericList<T>.
 You may need to add a generic constraints for the type T.
  */
 namespace _05_07.GenericList
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class StartingPoint
     {
@@ -33,14 +29,32 @@ namespace _05_07.GenericList
                 list.Add(i);
             }
 
+            Console.WriteLine("Original Array:");
+            Console.WriteLine(list);
+            Console.WriteLine(new string('-', Console.BufferWidth));
+
+            Console.WriteLine("Changing an element:");
             list[0] = 984357;
-            Console.WriteLine(list[0]);
+            Console.WriteLine(list);
+            Console.WriteLine(new string('-', Console.BufferWidth));
 
-            list.InsertAt(0, 123);
+            int insertAtindex = 0;
+            int insertAtItem = 123;
+            Console.WriteLine("Insert {0} at index {1}", insertAtItem, insertAtindex);
+            list.InsertAt(insertAtindex, insertAtItem);
+            Console.WriteLine(list);
+            Console.WriteLine(new string('-', Console.BufferWidth));
 
-            list.RemoveAt(1);
-            Console.WriteLine(list.IndexOf(123));
-            Console.WriteLine();
+            int removeAtindex = 1;
+            list.RemoveAt(removeAtindex);
+            Console.WriteLine("Remove element at index {0}", removeAtindex);
+            Console.WriteLine(list);
+            Console.WriteLine(new string('-', Console.BufferWidth));
+
+            int number = 123;
+            Console.WriteLine("Index of {0}: {1}", number, list.indexOf(number));
+            Console.WriteLine("Min: " + list.Min());
+            Console.WriteLine("Max: " + list.Max());
         }
     }
 }

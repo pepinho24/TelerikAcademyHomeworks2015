@@ -5,15 +5,19 @@ Apply the version attribute to a sample class and display its version at runtime
 namespace _11.VersionAttribute
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
+    [Version(2.11)]
     public class StartingPointVersionAttribute
     {
         public static void Main()
         {
+            Type type = typeof(StartingPointVersionAttribute);
+            object[] allAttributes = type.GetCustomAttributes(false);
+
+            foreach (VersionAttribute attr in allAttributes)
+            {
+                Console.WriteLine("The version of the class is: {0}", attr.ToString());
+            }
         }
     }
 }

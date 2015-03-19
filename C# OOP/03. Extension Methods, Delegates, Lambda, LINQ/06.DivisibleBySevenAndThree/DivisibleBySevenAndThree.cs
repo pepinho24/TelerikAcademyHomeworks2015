@@ -13,6 +13,13 @@ namespace _06.DivisibleBySevenAndThree
     {
         public static void Main()
         {
+            var numbers = new List<int>() { 1, 2, 3, 21, 42, 5, 7, 543, 2562, 2345, 324, 2345, 2345, 76, 456, 3524, 423, 132 };
+            var divisibleBy7and3 = numbers.Where(n => n % 21 == 0).ToList();
+
+            foreach (var item in divisibleBy7and3)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

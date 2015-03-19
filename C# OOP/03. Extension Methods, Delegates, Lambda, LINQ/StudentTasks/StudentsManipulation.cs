@@ -1,4 +1,18 @@
-﻿namespace StudentTasks
+﻿/*
+ *********************************************************************************************************************************************************
+ ********************************************************                      ***************************************************************************
+ ********************************************************       READ ME!       ***************************************************************************
+ ********************************************************                      ***************************************************************************
+ *********************************************************************************************************************************************************
+ 
+ * These are all the tasks using the Student class (Tasks: 3, 4, 5, 9, 10, 11, 12, 13, 14, 15, 16*, 18, 19)
+ * There is a RandomGenerator class used for generating random names, phones, etc.
+ * NB! Sometimes in the list of students there are no students meeting the task  requirements (e.g. task 15), so you should run just restart the program
+  
+ * P.S. The methods should return the collections but I made the printing in the methods on purpose, in order the Main method to be clear and not so long 
+ * P.S.2. If the first tasks are hidden when you print them all at once, try to change the buffer height to bigger number (uncomment // Console.BufferHeight = 500; )
+ */
+namespace StudentTasks
 {
     using System;
     using System.Collections.Generic;
@@ -23,15 +37,15 @@
                 LastName = RandomGenerator.GenerateRandomLastName(),
                 FN = RandomGenerator.GenerateRandomNumber(7),
                 // Email,
-                GroupNumber = RandomGenerator.random.Next(1, DepartmentNames.Length + 1),
+                GroupNumber = RandomGenerator.RandomNumber.Next(1, DepartmentNames.Length + 1),
                 // Marks,
-                Age = RandomGenerator.random.Next(5, 85),
+                Age = RandomGenerator.RandomNumber.Next(5, 85),
                 Tel = RandomGenerator.GenerateRandomTelephoneNumber()
             };
 
             student.Email = student.FirstName + student.LastName + "@" + RandomGenerator.GenerateRandomEmailDomain();
 
-            int marksCount = RandomGenerator.random.Next(1, 7);
+            int marksCount = RandomGenerator.RandomNumber.Next(1, 7);
             for (int i = 0; i < marksCount; i++)
             {
                 student.Marks.Add(RandomGenerator.GenerateRandomMark());
@@ -55,17 +69,19 @@
         {
             List<Student> students = GenerateStudents(50);
             List<Group> departments = new List<Group>();
-
+            
+            // Console.BufferHeight = 500; // uncomment if the buffer height is not enough and the first tasks are hidden
+            
             for (int i = 1; i <= DepartmentNames.Length; i++)
             {
                 departments.Add(new Group() { GroupNumber = i, DepartmentName = DepartmentNames[i - 1] });
             }
 
-            Console.WriteLine(" Problem 3. First before last" + Environment.NewLine);
+            Console.WriteLine(" Problem 3. First name  before last name" + Environment.NewLine);
             FirstBeforeLastNameStudents(students);
             PrintSeparator();
 
-            Console.WriteLine(" Problem 4. Age range" + Environment.NewLine);
+            Console.WriteLine(" Problem 4. Age range (18-24 inclusive)" + Environment.NewLine);
             AgeRangeStudents(students);
             PrintSeparator();
 

@@ -15,9 +15,12 @@ namespace _17.LongestString
         public static void Main()
         {
             var strings = new string[] { "1", "22", "333", "4444"};
-            var str = strings.OrderByDescending(s => s.Length).FirstOrDefault();
-
-            Console.WriteLine(str);
+            //var str = strings.OrderByDescending(s => s.Length).FirstOrDefault();
+            var str = (from s in strings
+                       orderby s.Length
+                       select s).LastOrDefault();                     
+                      
+            Console.WriteLine("Longest string is: {0}",str);
         }
     }
 }

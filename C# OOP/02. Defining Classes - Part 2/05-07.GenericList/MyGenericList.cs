@@ -114,7 +114,7 @@ namespace _05_07.GenericList
             this.NextFree = 0;
         }
 
-        public int indexOf(T element)
+        public int IndexOf(T element)
         {
             int index = -1;
 

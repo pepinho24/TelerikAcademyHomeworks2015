@@ -60,7 +60,7 @@ namespace _05_07.GenericList
             Console.WriteLine(new string('-', Console.BufferWidth));
 
             int number = 123;
-            Console.WriteLine("Index of {0}: {1}", number, list.indexOf(number));
+            Console.WriteLine("Index of {0}: {1}", number, list.IndexOf(number));
             Console.WriteLine("Min: " + list.Min());
             Console.WriteLine("Max: " + list.Max());
         }

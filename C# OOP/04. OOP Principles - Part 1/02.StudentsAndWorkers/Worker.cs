@@ -1,11 +1,6 @@
-﻿//Define class Worker derived from Human with new property WeekSalary and WorkHoursPerDay and method MoneyPerHour() that returns money earned by hour by the worker. 
-namespace _02.StudentsAndWorkers
+﻿namespace _02.StudentsAndWorkers
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Worker : Human
     {

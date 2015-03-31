@@ -5,10 +5,6 @@ Implement IEnumerable<int> and Equals(…), GetHashCode(), [], == and !=.*/
 namespace _05._64BitArray
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class Program
     {
@@ -27,7 +23,7 @@ namespace _05._64BitArray
             Console.WriteLine(secondArray);
 
             Console.WriteLine("firstArray == secondArray : {0}", firstArray == secondArray);
-            Console.WriteLine("firstArray.Equals(firstArray) : {0}",firstArray.Equals(firstArray));
+            Console.WriteLine("firstArray.Equals(firstArray) : {0}", firstArray.Equals(firstArray));
             Console.WriteLine("firstArray != secondArray : {0}", firstArray != secondArray);
         }
     }

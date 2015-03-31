@@ -7,9 +7,9 @@
 
     public class BitArray64 : IEnumerable<int>
     {
-       private ulong number;
+        private ulong number;
 
-       public BitArray64(ulong number)
+        public BitArray64(ulong number)
         {
             this.Number = number;
         }

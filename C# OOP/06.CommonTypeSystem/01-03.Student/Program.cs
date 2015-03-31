@@ -28,6 +28,13 @@
             Console.WriteLine(student);
             Console.WriteLine(student == secondStudent);
             Console.WriteLine(student.GetHashCode() == secondStudent.GetHashCode()); // true, because the hashcode gets only the SSN and the names
+
+            var thirdStudent = student.Clone() as Student;
+            Console.WriteLine(student == thirdStudent);
+            student.University = University.Cambridge;
+            Console.WriteLine(student == thirdStudent);
+
+
         }
     }
 }

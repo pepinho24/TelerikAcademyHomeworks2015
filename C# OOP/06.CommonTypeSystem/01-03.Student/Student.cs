@@ -21,9 +21,10 @@
  * operators == and != */
 namespace _01_03.Student
 {
+    using System;
     using System.Text;
 
-    public class Student
+    public class Student : ICloneable, IComparable<Student>
     {
         public string FirstName { get; set; }
 
@@ -49,7 +50,7 @@ namespace _01_03.Student
 
         public Student(string firstName, string middleName, string lastName, string ssn,
             string permanentAddress, string mobilePhone, string email, int course,
-            University university, Faculty faculty, Specialty speciality)
+            University university, Faculty faculty, Specialty specialty)
         {
             this.FirstName = firstName;
             this.MiddleName = middleName;
@@ -61,7 +62,7 @@ namespace _01_03.Student
             this.Course = course;
             this.University = university;
             this.Faculty = faculty;
-            this.Specialty = speciality;
+            this.Specialty = specialty;
         }
         public override bool Equals(object obj)
         {
@@ -85,7 +86,7 @@ namespace _01_03.Student
             //http://stackoverflow.com/questions/7924892/how-can-i-make-a-hashcode-for-a-custom-data-structure
             // http://ericlippert.com/2011/02/28/guidelines-and-rules-for-gethashcode/
 
-            return string.Format("{0}-{1}-{2}-{3}", this.SSN, this.FirstName, this.MiddleName, this.LastName).GetHashCode();            
+            return string.Format("{0}-{1}-{2}-{3}", this.SSN, this.FirstName, this.MiddleName, this.LastName).GetHashCode();
         }
 
         public override string ToString()
@@ -109,6 +110,57 @@ namespace _01_03.Student
         public static bool operator !=(Student firstStudent, Student secondStudent)
         {
             return !firstStudent.Equals(secondStudent);
+        }
+
+        /*Problem 2. ICloneable
+        
+         * Add implementations of the ICloneable interface. 
+         * The Clone() method should deeply copy all object's fields into a new object of type Student.*/
+        public object Clone()
+        {
+
+            string firstName = this.FirstName.Clone() as string;
+            string middleName = this.MiddleName.Clone() as string;
+            string lastName = this.LastName.Clone() as string;
+            string SSN = this.SSN.Clone() as string;
+            string permanentAddress = this.PermanentAddress.Clone() as string;
+            var mobilePhone = this.MobilePhone.Clone() as string;
+            var email = this.Email.Clone() as string;
+            var course = this.Course;
+            var university = this.University;
+            var faculty = this.Faculty;
+            var specialty = this.Specialty;
+            var newStudent = new Student(firstName, middleName, lastName, SSN, permanentAddress, mobilePhone, email, course, university, faculty, specialty);
+            return newStudent;
+        }
+
+        /*Problem 3. IComparable
+            Implement the IComparable<Student> interface to compare students by names (as first criteria, in lexicographic order) 
+         * and by social security number (as second criteria, in increasing order).*/
+       
+        public int CompareTo(Student otherStudent)
+        {
+            if (this.FirstName.CompareTo(otherStudent.FirstName) != 0)
+            {
+                return this.FirstName.CompareTo(otherStudent.FirstName);
+            }
+
+            if (this.MiddleName.CompareTo(otherStudent.MiddleName) != 0)
+            {
+                return this.MiddleName.CompareTo(otherStudent.MiddleName);
+            }
+
+            if (this.LastName.CompareTo(otherStudent.LastName) != 0)
+            {
+                return this.LastName.CompareTo(otherStudent.LastName);
+            }
+
+            if (this.SSN.CompareTo(otherStudent.SSN) != 0)
+            {
+                return this.SSN.CompareTo(otherStudent.SSN);
+            }
+
+            return 0;
         }
     }
 }

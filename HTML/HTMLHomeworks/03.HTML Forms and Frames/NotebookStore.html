@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Notebook Store</title>
+    <style>
+        ul li {
+            display: inline;
+            font-size: 1.8em;
+        }
+
+        table#sliders-table {
+            font-size: 1.6em;
+            min-width: 200px;
+        }
+
+        input[type=range] {
+            width: 90%;
+        }
+
+        thead tr td {
+            border: 4px solid black;
+            text-align: center;
+        }
+
+        .main-table {
+            min-width: 800px;
+            border: 4px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+
+    <script>
+        function changeValue(id) {
+
+            var valueDiv = document.getElementById(id + '-value');
+            valueDiv.innerText = document.getElementById(id).value;
+        }
+    </script>
+</head>
+<body>
+    <table class="main-table">
+        <thead>
+            <tr>
+                <td colspan="2">
+                    <ul>
+                        <li><a href="#">Apple</a></li>
+                        <li><a href="#">Toshiba</a></li>
+                        <li><a href="#">Lenovo</a></li>
+                        <li><a href="#">Dell</a></li>
+                        <li><a href="#">Asus</a></li>
+                        <li><a href="#">Hacer</a></li>
+                        <li><a href="#">HP</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <fieldset>
+                                    <legend>Apple MacBook Air</legend>
+                                    <table>
+                                        <tr>
+                                            <td rowspan="2"> <img src="http://www9.pcmag.com/media/images/357361-apple-macbook-air-13-inch-2014-angle.jpg" alt="MacBook Air" width="150" /></td>
+                                            <td> 64GB SSD</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2GB DDR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1300 USD</td>
+                                            <td>Intel Core i5</td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                            <td>
+                                <fieldset>
+                                    <legend>Apple MacBook Air</legend>
+                                    <table>
+                                        <tr>
+                                            <td rowspan="2"> <img src="http://www9.pcmag.com/media/images/357361-apple-macbook-air-13-inch-2014-angle.jpg" alt="MacBook Air" width="150" /></td>
+                                            <td> 64GB SSD</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2GB DDR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1300 USD</td>
+                                            <td>Intel Core i5</td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <fieldset>
+                                    <legend>Apple MacBook Air</legend>
+                                    <table>
+                                        <tr>
+                                            <td rowspan="2"> <img src="http://www9.pcmag.com/media/images/357361-apple-macbook-air-13-inch-2014-angle.jpg" alt="MacBook Air" width="150" /></td>
+                                            <td> 64GB SSD</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2GB DDR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1300 USD</td>
+                                            <td>Intel Core i5</td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                            <td>
+                                <fieldset>
+                                    <legend>Apple MacBook Air</legend>
+                                    <table>
+                                        <tr>
+                                            <td rowspan="2"> <img src="http://www9.pcmag.com/media/images/357361-apple-macbook-air-13-inch-2014-angle.jpg" alt="MacBook Air" width="150" /></td>
+                                            <td> 64GB SSD</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2GB DDR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1300 USD</td>
+                                            <td>Intel Core i5</td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <fieldset>
+                                    <legend>Apple MacBook Air</legend>
+                                    <table>
+                                        <tr>
+                                            <td rowspan="2"> <img src="http://www9.pcmag.com/media/images/357361-apple-macbook-air-13-inch-2014-angle.jpg" alt="MacBook Air" width="150" /></td>
+                                            <td> 64GB SSD</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2GB DDR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1300 USD</td>
+                                            <td>Intel Core i5</td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                            <td>
+                                <fieldset>
+                                    <legend>Apple MacBook Air</legend>
+                                    <table>
+                                        <tr>
+                                            <td rowspan="2"> <img src="http://www9.pcmag.com/media/images/357361-apple-macbook-air-13-inch-2014-angle.jpg" alt="MacBook Air" width="150" /></td>
+                                            <td> 64GB SSD</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2GB DDR</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1300 USD</td>
+                                            <td>Intel Core i5</td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table id="sliders-table">
+                        <tr>
+                            <td>
+                                Min price: <span id="slider-min-price-value">500</span> <br />
+                                <input id="slider-min-price" type="range" min="0" max="1000" value="500" onchange="changeValue('slider-min-price')" />
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Max price: <span id="slider-max-price-value">1500</span> <br />
+                                <input id="slider-max-price" type="range" min="0" max="3000" value="1500" onchange="changeValue('slider-max-price')" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Min RAM: <span id="slider-min-ram-value">4</span> <br />
+                                <input id="slider-min-ram" type="range" min="0" max="8" value="4" onchange="changeValue('slider-min-ram')" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Max RAM: <span id="slider-max-ram-value">16</span> <br />
+                                <input id="slider-max-ram" type="range" min="0" max="32" value="16" onchange="changeValue('slider-max-ram')" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

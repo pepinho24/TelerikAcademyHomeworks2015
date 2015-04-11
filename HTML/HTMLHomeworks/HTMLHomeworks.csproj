@@ -66,6 +66,7 @@
     <Content Include="02.HTML Tables\Calculator.html" />
     <Content Include="02.HTML Tables\FreshFruits.html" />
     <Content Include="02.HTML Tables\HTMLForm.html" />
+    <Content Include="03.HTML Forms and Frames\RegistrationForm.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,43 @@
+article {
+    color: white;
+}
+
+article, nav {
+    border-radius: 10px;
+}
+
+body section article footer p a {
+    color: #d4a6f8;
+}
+
+body header div#header-container div#reg-form-container button {
+    background-image: -webkit-gradient(linear, 0 0, 0 16, from(#b670eb), color-stop(0.125, #b35ef3));
+    background-image: -webkit-linear-gradient(#b670eb, #b35ef3 12.5%);
+    background-image: -moz-linear-gradient(#b670eb, #b35ef3 12.5%);
+    background-image: -o-linear-gradient(#b670eb, #b35ef3 12.5%);
+    background-image: linear-gradient(#b670eb, #b35ef3 12.5%);
+    border-left: 1px solid antiquewhite;
+    border-top: 1px solid antiquewhite;
+    color: white;
+}
+
+body header div#header-container div#reg-form-container button:hover {
+    border-bottom: 1px solid antiquewhite;
+    border-right: 1px solid antiquewhite;
+}
+
+body {
+    background-image: -webkit-gradient(linear, 0 0, 0 500, from(#d791ff), color-stop(0.066, #bf7df2), color-stop(0.248, #9215f2));
+    background-image: -webkit-linear-gradient(#d791ff, #bf7df2 6.6%, #9215f2 24.8%);
+    background-image: -moz-linear-gradient(#d791ff, #bf7df2 6.6%, #9215f2 24.8%);
+    background-image: -o-linear-gradient(#d791ff, #bf7df2 6.6%, #9215f2 24.8%);
+    background-image: linear-gradient(#d791ff, #bf7df2 6.6%, #9215f2 24.8%)
+}
+
+body header div#header-container div#reg-form-container div input {
+    background-color: #b25ef2;
+}
+
+footer {
+    text-align: center;
+}

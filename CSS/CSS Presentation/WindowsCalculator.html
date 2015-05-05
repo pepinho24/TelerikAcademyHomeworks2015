@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Windows Calculator</title>
+    <style>
+        body {
+            font-family: Consolas;
+            color: #354064;
+        }
+
+        button:enabled {
+            color: #293087;
+            background-image: -webkit-gradient(linear, 0 0, 0 27, from(#fcffff), color-stop(0.481, #e0e9f2), color-stop(0.481, #d5e0ed), color-stop(0.925, #d5e0ee), color-stop(0.962, #fdffff));
+            background-image: -webkit-linear-gradient(#fcffff, #e0e9f2 48.1%, #d5e0ed 48.1%, #d5e0ee 92.5%, #fdffff 96.2%);
+            background-image: -moz-linear-gradient(#fcffff, #e0e9f2 48.1%, #d5e0ed 48.1%, #d5e0ee 92.5%, #fdffff 96.2%);
+            background-image: -o-linear-gradient(#fcffff, #e0e9f2 48.1%, #d5e0ed 48.1%, #d5e0ee 92.5%, #fdffff 96.2%);
+            background-image: linear-gradient(#fcffff, #e0e9f2 48.1%, #d5e0ed 48.1%, #d5e0ee 92.5%, #fdffff 96.2%)
+        }
+
+        button:disabled, button.disabled {
+            background-image: -webkit-gradient(linear, 0 0, 0 29, from(#93a0b1), color-stop(0.068, #d9e4f1), color-stop(0.965, #dde8f4), color-stop(0.965, #c3cfdd));
+            background-image: -webkit-linear-gradient(#93a0b1, #d9e4f1 6.8%, #dde8f4 96.5%, #c3cfdd 96.5%);
+            background-image: -moz-linear-gradient(#93a0b1, #d9e4f1 6.8%, #dde8f4 96.5%, #c3cfdd 96.5%);
+            background-image: -o-linear-gradient(#93a0b1, #d9e4f1 6.8%, #dde8f4 96.5%, #c3cfdd 96.5%);
+            background-image: linear-gradient(#93a0b1, #d9e4f1 6.8%, #dde8f4 96.5%, #c3cfdd 96.5%)
+        }
+
+        button:enabled:hover, button:enabled.numbers:hover {
+            background-image: -webkit-gradient(linear, 0 0, 0 30, from(#d7e5ff), color-stop(0.066, #fbe772), color-stop(0.1, #fffbff), color-stop(0.133, #fef3e8), color-stop(0.166, #fef0e0), color-stop(0.466, #fde4cb), color-stop(0.5, #fce1bc), color-stop(0.533, #fce1bc), color-stop(0.533, #fbd073), color-stop(0.633, #fbd37c), color-stop(0.866, #fbe787), color-stop(0.866, #fbec8f), color-stop(0.933, #fbf19c), color-stop(0.933, #fcf7c3), to(#fffff6));
+            background-image: -webkit-linear-gradient(#d7e5ff, #fbe772 6.6%, #fffbff 10%, #fef3e8, #fef0e0 16.6%, #fde4cb 46.6%, #fce1bc 50%, #fce1bc 53.3%, #fbd073 53.3%, #fbd37c 63.3%, #fbe787 86.6%, #fbec8f 86.6%, #fbf19c 93.3%, #fcf7c3 93.3%, #fffff6);
+            background-image: -moz-linear-gradient(#d7e5ff, #fbe772 6.6%, #fffbff 10%, #fef3e8, #fef0e0 16.6%, #fde4cb 46.6%, #fce1bc 50%, #fce1bc 53.3%, #fbd073 53.3%, #fbd37c 63.3%, #fbe787 86.6%, #fbec8f 86.6%, #fbf19c 93.3%, #fcf7c3 93.3%, #fffff6);
+            background-image: -o-linear-gradient(#d7e5ff, #fbe772 6.6%, #fffbff 10%, #fef3e8, #fef0e0 16.6%, #fde4cb 46.6%, #fce1bc 50%, #fce1bc 53.3%, #fbd073 53.3%, #fbd37c 63.3%, #fbe787 86.6%, #fbec8f 86.6%, #fbf19c 93.3%, #fcf7c3 93.3%, #fffff6);
+            background-image: linear-gradient(#d7e5ff, #fbe772 6.6%, #fffbff 10%, #fef3e8, #fef0e0 16.6%, #fde4cb 46.6%, #fce1bc 50%, #fce1bc 53.3%, #fbd073 53.3%, #fbd37c 63.3%, #fbe787 86.6%, #fbec8f 86.6%, #fbf19c 93.3%, #fcf7c3 93.3%, #fffff6)
+        }
+
+        button:enabled.numbers {
+            background-image: -webkit-gradient(linear, 0 0, 0 28, from(#e6ecf2), color-stop(0.071, #f7fbff), color-stop(0.678, #eaf1f9), color-stop(0.892, #f0f9fd));
+            background-image: -webkit-linear-gradient(#e6ecf2, #f7fbff 7.1%, #eaf1f9 67.8%, #f0f9fd 89.2%);
+            background-image: -moz-linear-gradient(#e6ecf2, #f7fbff 7.1%, #eaf1f9 67.8%, #f0f9fd 89.2%);
+            background-image: -o-linear-gradient(#e6ecf2, #f7fbff 7.1%, #eaf1f9 67.8%, #f0f9fd 89.2%);
+            background-image: linear-gradient(#e6ecf2, #f7fbff 7.1%, #eaf1f9 67.8%, #f0f9fd 89.2%)
+        }
+
+        input[type="radio"] {
+            margin-right: -7px;
+        }
+
+        #main-table {
+            width: 500px;
+            border: 1px solid black;
+            padding: 10px;
+            background-image: -webkit-gradient(linear, 0 0, 0 369.00000190734863, from(#c1c5d1), color-stop(0.005, #edf4fc), color-stop(0.243, #d9e4f1), color-stop(0.997, #d9e4f1), color-stop(0.997, #e2edfa), to(#e2edfa));
+            background-image: -webkit-linear-gradient(#c1c5d1, #edf4fc 0.5%, #d9e4f1 24.3%, #d9e4f1 99.7%, #e2edfa 99.7%, #e2edfa);
+            background-image: -moz-linear-gradient(#c1c5d1, #edf4fc 0.5%, #d9e4f1 24.3%, #d9e4f1 99.7%, #e2edfa 99.7%, #e2edfa);
+            background-image: -o-linear-gradient(#c1c5d1, #edf4fc 0.5%, #d9e4f1 24.3%, #d9e4f1 99.7%, #e2edfa 99.7%, #e2edfa);
+            background-image: linear-gradient(#c1c5d1, #edf4fc 0.5%, #d9e4f1 24.3%, #d9e4f1 99.7%, #e2edfa 99.7%, #e2edfa)
+        }
+
+        #main-table > tbody > tr > td {
+            height: 35px;
+            width: 45px;
+        }
+
+        .bordered {
+            border: 1px solid black;
+
+        }
+
+        button {
+            width: 100%;
+            height: 100%;
+        }
+
+        #result-output {
+            width: 98%;
+            height: 50px;
+            font-size: 1.5rem;
+            text-align: right;
+            padding-right: 7px;
+            /* For removing the blinking cursor */
+            /* color: transparent;
+             text-shadow: 0 0 0 black;*/
+            background-image: -webkit-gradient(linear, 0 0, 0 54, from(#f4f5f6), color-stop(0.037, #e5eefb), color-stop(0.185, #e5effa), color-stop(0.407, #ecf4fc), color-stop(0.444, #f0f4fc), color-stop(0.888, #fefeff), color-stop(0.981, #fff), color-stop(0.981, #cbd1d8));
+            background-image: -webkit-linear-gradient(#f4f5f6, #e5eefb 3.7%, #e5effa 18.5%, #ecf4fc 40.7%, #f0f4fc 44.4%, #fefeff 88.8%, #fff 98.1%, #cbd1d8 98.1%);
+            background-image: -moz-linear-gradient(#f4f5f6, #e5eefb 3.7%, #e5effa 18.5%, #ecf4fc 40.7%, #f0f4fc 44.4%, #fefeff 88.8%, #fff 98.1%, #cbd1d8 98.1%);
+            background-image: -o-linear-gradient(#f4f5f6, #e5eefb 3.7%, #e5effa 18.5%, #ecf4fc 40.7%, #f0f4fc 44.4%, #fefeff 88.8%, #fff 98.1%, #cbd1d8 98.1%);
+            background-image: linear-gradient(#f4f5f6, #e5eefb 3.7%, #e5effa 18.5%, #ecf4fc 40.7%, #f0f4fc 44.4%, #fefeff 88.8%, #fff 98.1%, #cbd1d8 98.1%)
+        }
+
+        #numbers-table {
+            border-collapse: collapse;
+            width: 100%;
+            padding: 5px;
+        }
+        #numbers-table>tbody>tr td{
+            height:20px;
+        }
+    </style>
+</head>
+<body>
+<table id="main-table">
+    <tbody>
+    <tr>
+        <td colspan="10">
+            <input id="result-output" type="text" value="8854455" class="bordered"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="10">
+            <table cellspacing="1" id="numbers-table" class="bordered">
+                <tr>
+                    <td>0000</td>
+                    <td>0000</td>
+                    <td>0000</td>
+                    <td>0000</td>
+                    <td>0000</td>
+                    <td>0000</td>
+                    <td>0000</td>
+                    <td>0000</td>
+                </tr>
+                <tr>
+                    <td colspan="4">63</td>
+                    <td colspan="3">47</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>0000</td>
+                    <td>0000</td>
+                    <td>1000</td>
+                    <td>0111</td>
+                    <td>0001</td>
+                    <td>1011</td>
+                    <td>1011</td>
+                    <td>0111</td>
+                </tr>
+                <tr>
+                    <td colspan="4">31</td>
+                    <td colspan="3">15</td>
+                    <td>0</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td colspan="2" rowspan="3" class="bordered">
+            <input id="hex" name="numeric-system" type="radio"/> <label for="hex">Hex</label> <br/>
+            <input id="dec" name="numeric-system" type="radio" checked/> <label for="dec">Dec</label> <br/>
+            <input id="oct" name="numeric-system" type="radio"/> <label for="oct">Oct</label> <br/>
+            <input id="bin" name="numeric-system" type="radio"/> <label for="bin">Bin</label> <br/>
+        </td>
+        <td>
+            <button disabled></button>
+        </td>
+        <td>
+            <button>Mod</button>
+        </td>
+        <td>
+            <button disabled>A</button>
+        </td>
+        <td>
+            <button class="disabled">MC</button>
+        </td>
+        <td>
+            <button class="disabled">MR</button>
+        </td>
+        <td>
+            <button class="disabled">MS</button>
+        </td>
+        <td>
+            <button class="disabled">M+</button>
+        </td>
+        <td>
+            <button class="disabled">M-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button>(</button>
+        </td>
+        <td>
+            <button>)</button>
+        </td>
+        <td>
+            <button disabled>B</button>
+        </td>
+        <td>
+            <button>&#8592;</button>
+        </td>
+        <td>
+            <button>CE</button>
+        </td>
+        <td>
+            <button>C</button>
+        </td>
+        <td>
+            <button>&plusmn;</button>
+        </td>
+        <td>
+            <button disabled>&#8730;</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button>RoL</button>
+        </td>
+        <td>
+            <button>RoR</button>
+        </td>
+        <td>
+            <button disabled>C</button>
+        </td>
+        <td>
+            <button class="numbers">7</button>
+        </td>
+        <td>
+            <button class="numbers">8</button>
+        </td>
+        <td>
+            <button class="numbers">9</button>
+        </td>
+        <td>
+            <button>/</button>
+        </td>
+        <td>
+            <button disabled>%</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" rowspan="3" class="bordered">
+            <input id="qword" name="word" type="radio" checked/> <label for="qword">Qword</label> <br/>
+            <input id="dword" name="word" type="radio"/> <label for="dword">Dword</label> <br/>
+            <input id="word" name="word" type="radio"/> <label for="word">Word</label> <br/>
+            <input id="byte" name="word" type="radio"/> <label for="byte">Byte</label> <br/>
+        </td>
+        <td>
+            <button>Or</button>
+        </td>
+        <td>
+            <button>Xor</button>
+        </td>
+        <td>
+            <button disabled>D</button>
+        </td>
+        <td>
+            <button class="numbers">4</button>
+        </td>
+        <td>
+            <button class="numbers">5</button>
+        </td>
+        <td>
+            <button class="numbers">6</button>
+        </td>
+        <td>
+            <button>*</button>
+        </td>
+        <td>
+            <button disabled>1/x</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button>Lsh</button>
+        </td>
+        <td>
+            <button>Rsh</button>
+        </td>
+        <td>
+            <button disabled>E</button>
+        </td>
+        <td>
+            <button class="numbers">1</button>
+        </td>
+        <td>
+            <button class="numbers">2</button>
+        </td>
+        <td>
+            <button class="numbers">3</button>
+        </td>
+        <td>
+            <button>-</button>
+        </td>
+        <td rowspan="2">
+            <button>=</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button>Not</button>
+        </td>
+        <td>
+            <button>And</button>
+        </td>
+        <td>
+            <button disabled>F</button>
+        </td>
+        <td colspan="2">
+            <button class="numbers">0</button>
+        </td>
+        <td>
+            <button disabled>,</button>
+        </td>
+        <td>
+            <button>+</button>
+        </td>
+    </tr>
+
+    </tbody>
+
+</table>
+</body>
+</html>

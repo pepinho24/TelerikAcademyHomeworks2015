@@ -1,0 +1,28 @@
+table {
+    background-color: #595959;
+    color: #a6b2b4;
+    width: 500px;
+}
+
+tbody tr td:first-child {
+    font-style: italic;
+    color: white;
+    width: 130px;
+}
+
+a {
+    color: #fdf2b0;
+    text-decoration: none;
+}
+
+#userStatus {
+    color: #71b37a;
+}
+
+#inactiveSupport {
+    color: red;
+}
+
+#answerStatus {
+    color: #d56a25;
+}

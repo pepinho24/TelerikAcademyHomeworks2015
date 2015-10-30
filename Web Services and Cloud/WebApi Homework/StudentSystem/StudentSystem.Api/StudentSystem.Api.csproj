@@ -130,6 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Homeworks\" />
+    <Folder Include="Models\Tests\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -174,7 +176,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\StudentRegisterModel.cs" />
+    <Compile Include="Models\Courses\CourseCreatingModel.cs" />
+    <Compile Include="Models\Courses\CourseUpdateModel.cs" />
+    <Compile Include="Models\Courses\CourseViewModel.cs" />
+    <Compile Include="Models\Students\StudentRegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

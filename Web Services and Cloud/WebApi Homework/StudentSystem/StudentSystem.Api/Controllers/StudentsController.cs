@@ -1,6 +1,7 @@
 ﻿namespace StudentSystem.Api.Controllers
 {
     using Models;
+    using Models.Students;
     using StudentSystem.Models;
     using System.Linq;
     using System.Web.Http;

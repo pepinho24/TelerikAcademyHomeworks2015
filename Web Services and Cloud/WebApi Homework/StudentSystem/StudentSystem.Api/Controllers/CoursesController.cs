@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Http;
     using StudentSystem.Models;
+    using Models.Courses;
 
     public class CoursesController : BaseController
     {
@@ -17,7 +18,17 @@
         [HttpGet]
         public IHttpActionResult Get(Guid id)
         {
-            Course course = data.Courses.SearchFor(c => c.Id == id).FirstOrDefault();
+            var course = data.Courses.SearchFor(c => c.Id == id)
+                .Select(c => new CourseViewModel
+                {
+                    Id = c.Id,
+                    Description = c.Description,
+                    Homeworks = c.Homeworks,
+                    Name = c.Name,
+                    Students = c.Students
+                })
+            .FirstOrDefault();
+
             if (course == null)
             {
                 return NotFound();
@@ -27,33 +38,43 @@
         }
 
         [HttpPut]
-        public IHttpActionResult Update(Guid id, Course course)
+        public IHttpActionResult Update(Guid id, CourseUpdateModel course)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            if (id != course.Id)
+            
+            var dbCourse = new Course
             {
-                return BadRequest();
-            }
+                Id = id,
+                Name = course.Name,
+                Description = course.Description,
+                Homeworks = course.Homeworks,
+                Students = course.Students
+            };
 
-            data.Courses.Update(course);
+            data.Courses.Update(dbCourse);
             data.SaveChanges();
 
             return Ok(course);
         }
 
         [HttpPost]
-        public IHttpActionResult Create(Course course)
+        public IHttpActionResult Create(CourseCreatingModel course)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            data.Courses.Add(course);
+            var dbCourse = new Course
+            {
+                Name = course.Name,
+                Description = course.Description
+            };
+
+            data.Courses.Add(dbCourse);
             data.SaveChanges();
 
             return Ok(course);
@@ -62,7 +83,7 @@
         [HttpPost]
         public IHttpActionResult Delete(Guid id)
         {
-            Course course = data.Courses.SearchFor(c => c.Id == id).FirstOrDefault();
+            var course = data.Courses.SearchFor(c => c.Id == id).FirstOrDefault();
             if (course == null)
             {
                 return NotFound();

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem.Models", "StudentSystem.Models\StudentSystem.Models.csproj", "{93F5CE48-B29D-4E55-AB15-0D243ADBAE36}"
 EndProject
@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E591DA
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem.Api", "StudentSystem.Api\StudentSystem.Api.csproj", "{52A59CEC-7961-4C87-AE2C-E5B44A552BBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,10 @@ Global
 		{17884E97-2CF9-4DD7-A89C-9D27F004440E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17884E97-2CF9-4DD7-A89C-9D27F004440E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17884E97-2CF9-4DD7-A89C-9D27F004440E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A59CEC-7961-4C87-AE2C-E5B44A552BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A59CEC-7961-4C87-AE2C-E5B44A552BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A59CEC-7961-4C87-AE2C-E5B44A552BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A59CEC-7961-4C87-AE2C-E5B44A552BBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

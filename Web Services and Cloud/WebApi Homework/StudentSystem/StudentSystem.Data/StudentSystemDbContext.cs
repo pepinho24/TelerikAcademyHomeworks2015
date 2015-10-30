@@ -29,5 +29,7 @@
         {
             base.SaveChanges();
         }
+
+        public System.Data.Entity.DbSet<StudentSystem.Models.Homework> Homework { get; set; }
     }
 }

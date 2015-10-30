@@ -130,7 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Homeworks\" />
     <Folder Include="Models\Tests\" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +178,9 @@
     <Compile Include="Models\Courses\CourseCreatingModel.cs" />
     <Compile Include="Models\Courses\CourseUpdateModel.cs" />
     <Compile Include="Models\Courses\CourseViewModel.cs" />
+    <Compile Include="Models\Homeworks\HomeworkCreatingModel.cs" />
+    <Compile Include="Models\Homeworks\HomeworkUpdateModel.cs" />
+    <Compile Include="Models\Homeworks\HomeworkViewModel.cs" />
     <Compile Include="Models\Students\StudentRegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

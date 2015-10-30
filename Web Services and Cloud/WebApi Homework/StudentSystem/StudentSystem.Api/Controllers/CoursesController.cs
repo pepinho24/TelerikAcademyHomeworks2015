@@ -11,7 +11,16 @@
         [HttpGet]
         public IHttpActionResult Get()
         {
-            var courses = data.Courses.All();
+            var courses = data.Courses.All()
+                .Select(c => new CourseViewModel
+                {
+                    Id =c.Id,
+                    Description = c.Description,
+                    Homeworks = c.Homeworks,
+                    Name = c.Name,
+                    Students = c.Students
+                });
+
             return Ok(courses);
         }
 
@@ -44,7 +53,7 @@
             {
                 return BadRequest(ModelState);
             }
-            
+
             var dbCourse = new Course
             {
                 Id = id,
@@ -71,7 +80,9 @@
             var dbCourse = new Course
             {
                 Name = course.Name,
-                Description = course.Description
+                Description = course.Description,
+                Homeworks = course.Homeworks,
+                Students = course.Students              
             };
 
             data.Courses.Add(dbCourse);

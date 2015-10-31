@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicSystem.Api", "MusicSystem.Api\MusicSystem.Api.csproj", "{F33A604A-751F-49E2-B49C-53CE8871FDCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicSystem.Data", "MusicSystem.Data\MusicSystem.Data.csproj", "{DCE0AB2C-F8F1-47D0-9BDF-545DEC94B438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicSystem.Models", "MusicSystem.Models\MusicSystem.Models.csproj", "{8E164406-9D1A-491C-8A37-EAE39E49D8A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F33A604A-751F-49E2-B49C-53CE8871FDCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F33A604A-751F-49E2-B49C-53CE8871FDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F33A604A-751F-49E2-B49C-53CE8871FDCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE0AB2C-F8F1-47D0-9BDF-545DEC94B438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE0AB2C-F8F1-47D0-9BDF-545DEC94B438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE0AB2C-F8F1-47D0-9BDF-545DEC94B438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE0AB2C-F8F1-47D0-9BDF-545DEC94B438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E164406-9D1A-491C-8A37-EAE39E49D8A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E164406-9D1A-491C-8A37-EAE39E49D8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E164406-9D1A-491C-8A37-EAE39E49D8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E164406-9D1A-491C-8A37-EAE39E49D8A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

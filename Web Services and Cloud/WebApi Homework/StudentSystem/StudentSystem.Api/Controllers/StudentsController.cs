@@ -2,6 +2,7 @@
 {
     using Models;
     using Models.Students;
+    using Models.Homeworks;
     using StudentSystem.Models;
     using System.Linq;
     using System.Web.Http;
@@ -11,7 +12,26 @@
         [HttpGet]
         public IHttpActionResult Get()
         {
-            var students = data.Students.All().ToList();
+            var students = data.Students.All()
+                .Select(s => new StudentViewModel
+                {
+                    AdditionalInformation = s.AdditionalInformation,
+                    AssistantName = s.Assistant.FirstName + " " + s.Assistant.LastName,
+                    Courses = s.Courses.Select(c => c.Name).ToList(),
+                    FirstName = s.FirstName,
+                    LastName = s.LastName,
+                    Level = s.Level,
+                    StudentIdentification = s.StudentIdentification,
+                    Trainees = s.Trainees.Select(t => t.FirstName + " " + t.LastName).ToList(),
+                    Homeworks = s.Homeworks.Select(h => new HomeworkViewModel
+                    {
+                        CourseName = h.Course.Name,
+                        FileUrl = h.FileUrl,
+                        Id = h.Id,
+                        StudentName = h.Student.FirstName + " " + h.Student.LastName,
+                        TimeSent = h.TimeSent
+                    }).ToList()
+                });
 
             return Ok(students);
         }
@@ -19,8 +39,7 @@
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            var students = data.Students.All();
-            var student = students.FirstOrDefault((p) => p.StudentIdentification == id);
+            var student = data.Students.All().FirstOrDefault(s => s.StudentIdentification == id);
 
             if (student == null)
             {
@@ -39,13 +58,13 @@
             }
 
             var dbStudent = new Student()
-            {
+            { 
                 FirstName = student.FirstName,
                 LastName = student.LastName,
                 Level = student.Level,
                 AdditionalInformation = student.AdditionalInformation
             };
-            
+
             data.Students.Add(dbStudent);
 
             data.SaveChanges();
@@ -54,7 +73,7 @@
 
         [HttpPut]
         public IHttpActionResult Update(int id, Student student)
-        {            
+        {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

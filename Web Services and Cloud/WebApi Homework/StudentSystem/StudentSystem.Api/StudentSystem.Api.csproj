@@ -130,7 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Tests\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -182,6 +181,11 @@
     <Compile Include="Models\Homeworks\HomeworkUpdateModel.cs" />
     <Compile Include="Models\Homeworks\HomeworkViewModel.cs" />
     <Compile Include="Models\Students\StudentRegisterModel.cs" />
+    <Compile Include="Models\Students\StudentUpdateModel.cs" />
+    <Compile Include="Models\Students\StudentViewModel.cs" />
+    <Compile Include="Models\Tests\TestCreatingModel.cs" />
+    <Compile Include="Models\Tests\TestUpdateModel.cs" />
+    <Compile Include="Models\Tests\TestViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

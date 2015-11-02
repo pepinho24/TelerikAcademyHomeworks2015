@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicSystem.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace MusicSystem.Api
     {
         protected void Application_Start()
         {
+            DatabaseConfig.Initialize();
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

@@ -1,9 +1,10 @@
 ﻿namespace MusicSystem.Data
 {
+    using Contracts;
     using MusicSystem.Models;
     using System.Data.Entity;
 
-    public class MusicSystemDbContext : DbContext
+    public class MusicSystemDbContext : DbContext, IMusicSystemDbContext
     {
         public MusicSystemDbContext()
             : base("MusicSystem")

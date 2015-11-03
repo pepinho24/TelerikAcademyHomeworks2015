@@ -27,16 +27,17 @@
         {
             var albums = data
                 .All()
+                .OrderBy(a=>a.AlbumId)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
             return this.Ok(albums);
         }
-
+        
         public IHttpActionResult Get(int id)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(ModelState);
             }
@@ -60,12 +61,16 @@
 
         public IHttpActionResult Post(SaveAlbumRequestModel model)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
                 return this.BadRequest(ModelState);
             }
 
-
+            if (model == null)
+            {
+                return this.BadRequest("Album cannot be null!");
+            }
+            
             if (data.All().Any(a => a.Title == model.Title))
             {
                 return this.BadRequest(string.Format("Album with Title '{0}' already exists!", model.Title));
@@ -77,6 +82,43 @@
             data.SaveChanges();
 
             return this.Ok(dbAlbum.AlbumId);
+        }
+
+        [HttpPut]
+        public IHttpActionResult Put(int id, SaveAlbumRequestModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest(ModelState);
+            }
+
+            if (model == null)
+            {
+                return this.BadRequest("Album cannot be null!");
+            }
+
+            var dbModel = data.GetById(id);
+            if (dbModel == null)
+            {
+                return this.NotFound();
+            }
+            
+            var dbAlbum = Mapper.Map<Album>(model);
+            dbAlbum.AlbumId = id;
+
+            data.Update(dbAlbum);
+            data.SaveChanges();
+
+            return this.Ok(dbAlbum.AlbumId);
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            data.Delete(id);
+            data.SaveChanges();
+
+            return this.Ok();
         }
     }
 }

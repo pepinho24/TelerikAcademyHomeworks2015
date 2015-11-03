@@ -24,6 +24,7 @@
             var artists = data
                 .All()
                 .Select(ArtistDetailsResponseModel.FromModel)
+                .OrderBy(a=>a.ArtistId)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
@@ -75,6 +76,44 @@
             data.SaveChanges();
 
             return this.Ok(newArtist.ArtistId);
+        }
+
+        [HttpPut]
+        public IHttpActionResult Put(int id, SaveArtistRequestModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.BadRequest(ModelState);
+            }
+
+            var dbArtist = data.GetById(id);
+
+            if (dbArtist == null)
+            {
+                return this.NotFound();
+            }
+
+            dbArtist = new Artist()
+            {
+                ArtistId = id,
+                CountryId = model.CountryId,
+                DateOfBirth = model.DateOfBirth,
+                Name = model.Name                
+            };
+
+            data.Add(dbArtist);
+            data.SaveChanges();
+
+            return this.Ok();
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            data.Delete(id);
+            data.SaveChanges();
+
+            return this.Ok();
         }
     }
 }

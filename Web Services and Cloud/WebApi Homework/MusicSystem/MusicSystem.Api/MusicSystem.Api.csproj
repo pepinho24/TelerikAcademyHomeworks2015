@@ -62,7 +62,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Extensions.Conventions, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
@@ -70,11 +70,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.WebApi.3.2.0.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
+      <HintPath>..\packages\Ninject.Web.WebApi.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.WebApi.WebHost, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
@@ -164,6 +164,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\ArtistsController.cs" />
+    <Compile Include="Controllers\SongsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -175,6 +176,8 @@
     <Compile Include="Models\Albums\SaveAlbumRequestModel.cs" />
     <Compile Include="Models\Artists\ArtistDetailsResponseModel.cs" />
     <Compile Include="Models\Artists\SaveArtistRequestModel.cs" />
+    <Compile Include="Models\Songs\SaveSongRequestModel.cs" />
+    <Compile Include="Models\Songs\SongDetailsResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +199,10 @@
     <ProjectReference Include="..\MusicSystem.Models\MusicSystem.Models.csproj">
       <Project>{8e164406-9d1a-491c-8a37-eae39e49d8a7}</Project>
       <Name>MusicSystem.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MusicSystem.Services.Data\MusicSystem.Services.Data.csproj">
+      <Project>{67d0874b-6155-4266-b463-8654b83efd85}</Project>
+      <Name>MusicSystem.Services.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

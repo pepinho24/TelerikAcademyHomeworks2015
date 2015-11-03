@@ -9,25 +9,27 @@ namespace MusicSystem.Api.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
-    using Ninject.Web.Common;
     using Ninject.Extensions.Conventions;
+    using Ninject.Web.Common;
     using Data.Contracts;
     using Data;
+    using Services.Data;
+    using Services.Data.Contracts;
 
-    public static class NinjectConfig
+    public static class NinjectConfig 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start()
+        public static void Start() 
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-
+        
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -35,7 +37,7 @@ namespace MusicSystem.Api.App_Start
         {
             bootstrapper.ShutDown();
         }
-
+        
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -66,11 +68,12 @@ namespace MusicSystem.Api.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>)).InRequestScope();
-            kernel.Bind<IMusicSystemDbContext>().To<MusicSystemDbContext>().InRequestScope();
+           // kernel.Bind<IMusicSystemDbContext>().To<MusicSystemDbContext>().InRequestScope();
+           // kernel.Bind<ISongsService>().To<SongsService>();
             kernel.Bind(b => b
-                .From("MusicSystem.Data")
+                .From("MusicSystem.Data", "MusicSystem.Services.Data")
                 .SelectAllClasses()
                 .BindDefaultInterface());
-        }
+        }        
     }
 }
